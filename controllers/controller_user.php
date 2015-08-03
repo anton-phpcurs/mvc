@@ -17,15 +17,15 @@
 class Controller_User
 extends Controller
 {
-    public function execute ()
+  /*  public function execute ()
     {
         $action = $this->action;
         if (method_exists (get_class($this), $action)) { $this->$action ();}
     }
-
+*/
     public function actionAdd ()
     {
-        Log::sendToScreen(__FILE__,__FILE__,'Добавлен пользователь '. $this -> value, false);
+        Log::sendToScreen(__FILE__,__FILE__,'Добавлен пользователь ', false);
     }
 
     public function actionSave ()
@@ -34,7 +34,11 @@ extends Controller
     }
     public function actionDelete ()
     {
-        Log::sendToScreen(__FILE__,__FILE__,'Удален пользователь', false);
+        if (count ($this -> value) > 0) {
+            Log::sendToScreen(__FILE__,__FILE__,'Удален пользователь #'. $this -> value[0], false);
+        } else {
+            Log::sendToScreen(__FILE__,__FILE__,'Нет значения ', false);
+        }
     }
 
     public function actionOn ()

@@ -8,20 +8,21 @@
  */
 abstract class Controller
 {
-    protected $action;
     protected $value;
-
-    public function setAction ($action)
-    {
-        Log::sendToScreen(__FILE__,__FILE__,'Добавлено действие: '. $action, false);
-        $this -> action = $action;
-    }
 
     public function setValue ($value)
     {
-        Log::sendToScreen(__FILE__,__FILE__,'Добавлено значение: '. $value, false);
         $this -> value = $value;
     }
 
-    abstract protected function execute ();
+    public function execute ()
+    {
+        $action = 'action'. array_shift ($this -> value);
+        if (method_exists (get_class($this), $action)) {
+            $this->$action ();
+        } else {
+            header('Location: '. Config::ROOT_URL .'/404');
+            die();
+        }
+    }
 }

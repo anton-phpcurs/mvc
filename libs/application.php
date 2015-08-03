@@ -35,7 +35,7 @@
 class Application
 {
     private $controllerName;
-    private $actionName;
+    //private $actionName;
     private $value;
 
     /**
@@ -57,38 +57,18 @@ class Application
     public function run ()
     {
         $this -> parsRequest();
-
         $controllerName = 'Controller_'. ucfirst ($this -> controllerName);
-        $actionName = 'action'. ucfirst ($this -> actionName);
-        Log::sendToScreen(__FILE__, __LINE__, $controllerName, false);
 
         if (class_exists ($controllerName)) {
-        //if (method_exists ($controllerName, $actionName)) {
             $controller = new $controllerName;
-            $controller -> setAction ($actionName);
             $controller -> setValue ($this -> value);
             $controller -> execute ();
         } else {
-
-Log::sendToScreen(__FILE__, __LINE__, 'Redirect: '. Config::ROOT_URL . '/404', false);
-
-            //$this -> redirect(Config::ROOT_URL . '/page/404');
+            header('Location: '. Config::ROOT_URL .'/404');
+            die();
         }
     }
 
-    /**
-     * Переадрисация
-     * @param $url
-     */
-    public function redirect($url)
-    {
-        header('Location: '. $url);
-        die();
-    }
-
-    /**
-     *
-     */
     private function parsRequest ()
     {
         $url = trim ($_SERVER ['REQUEST_URI'], '/');
@@ -98,19 +78,13 @@ Log::sendToScreen(__FILE__, __LINE__, 'Redirect: '. Config::ROOT_URL . '/404', f
             array_shift ($arg);
         }
 
-        $this -> controllerName = $this -> getArgument ($arg, 'page');
-        $this -> actionName = $this -> getArgument ($arg, 'index');
-        $this -> value = $this -> getArgument ($arg);
-    }
+        for ($i = 0; $i < count ($arg); $i++) {
+            if (!preg_match ('/^[a-zA-Z0-9_]+$/', $arg [$i])) {
+                $arg[0] = '404';
+            }
+        }
 
-    /**
-     * Проверка аргумента
-     * @param $array
-     * @param string $value
-     * @return mixed|string
-     */
-    private function getArgument (&$array, $value = ''){
-        $argument = array_shift ($array);
-        return preg_match ('/^[a-zA-Z0-9_]+$/', $argument) ? $argument : $value;
+        $this -> controllerName = array_shift ($arg);
+        $this -> value = $arg;
     }
 }
