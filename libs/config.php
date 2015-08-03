@@ -8,9 +8,11 @@
 
 class Config
 {
-    const URL_ARG_OFFSET = 1;
+//    const URL_ARG_OFFSET = 1;
+    const URL_ARG_OFFSET = 0;
 
-    const ROOT_URL      = 'http://test/mvc';
+//    const ROOT_URL      = 'http://test/mvc'; /* NIX */
+    const ROOT_URL      = 'http://localhost';
     const ROOT_EMAIL    = 'admin@admin.ua';
     const DEFAULT_CONTROLLER = 'page';
     const DEFAULT_ACTION = 'main';
