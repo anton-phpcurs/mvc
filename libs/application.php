@@ -6,32 +6,6 @@
  * Time: 23:11
  */
 
-/**
- * ��������� �������� url
- * USER
- * url/user/add         ���������� ����� + POST-������ �� �����
- * url/user/edit/id     �������� �������� �������������� ������ ������������ �id
- * url/user/save        ���������� POST-������ �� �����
- * url/user/delete/id   ������� ������������ �id (������������� ������� ������������ ��� �������������)
- * url/user/on/id       ��������� ������������ �id (������������� ������� �������������)
- * url/user/off/id      �������� ������������ �id (������������� ������� �������������)
- * url/user/lots/id     �������� �������� ���� ����� ������������ �id
- * url/user/bods/id     �������� �������� ���� ������ ������������ �id
- *
- * LOT
- * url/lot/add          ���������� ���� + POST-������ �� �����
- * url/lot/save         ���������� POST-������ �� �����
- * url/lot/delete/id    ������� ���� �id (�������� �����������)
- *
- * PAGE
- * url/page/index       �������� ������� ��������
- * url/page/contactus   �������� �������� ���������
- * url/page/signin      �������� �������� �����������/
- * url/page/404         ������ �� ��������
- *
- * To-Do: �������� ���������
- */
-
 class Application
 {
     private $controllerName;
@@ -73,9 +47,13 @@ class Application
             array_shift ($arg);
         }
 
+        if($arg[0] === '') {$arg[0] = 'index';}
+
         for ($i = 0; $i < count ($arg); $i++) {
-            if (!preg_match ('/^[a-zA-Z0-9_]+$/', $arg [$i])) {
+            if (!preg_match ('/^[a-zA-Z0-9_]+$/', $arg[$i])) {
+                Log::sendToScreen(__FILE__, __LINE__, 'Анализ запроса: '. $arg[$i], true);
                 $arg[0] = '404';
+                breack;
             }
         }
 

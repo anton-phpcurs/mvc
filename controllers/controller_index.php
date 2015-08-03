@@ -6,13 +6,13 @@
  * Time: 23:42
  */
 
-class Controller_404
+class Controller_Index
     extends Controller
 {
     public function execute ()
     {
         $view = new View();
-        $view -> setTemplate ('404');
+        $view -> setTemplate ('index');
         $view -> render ();
     }
 }
