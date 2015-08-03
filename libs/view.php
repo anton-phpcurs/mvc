@@ -23,16 +23,29 @@ class View
 
     public function render ()
     {
-        //Log::sendToScreen(__FILE__, __LINE__, 'Путь '. __DIR__ .'/../view/'. $this -> template , false);
-        //if (file_exists (__DIR__ .'/../view/'. $this -> template)) {Log::sendToScreen(__FILE__, __LINE__, 'Найден' , false);}
+        // TEMPLATE HACK
+        ob_start();
+        $folders = array ('page', 'goods', 'user', 'admin');
+        $layout ='';
 
-        $path_prefix = '/public';
-        $content = 'TEST';
-        //Log::sendToScreen(__FILE__, __LINE__, 'Path_style '. Config::ROOT_URL .'/public/css' , false);
+        if (count ($this -> value) > 0) extract ($this -> value);
+
+        foreach ($folders as $folder) {
+            $path = sprintf('%s/../view/%s/%s.phtml', __DIR__, $folder, $this -> template);
+
+            if (file_exists($path)) {
+                if (($folder == 'page') || ($folder == 'goods') || ($folder == 'user')) {$layout = 'layout.phtml';}
+               // if ($folder == 'user') {$layout = 'user.phtml';}
+                if ($folder == 'admin') {$layout = 'admin.phtml';}
+
+                include_once ($path);
+            }
+        }
+
+        $content = ob_get_clean();
 
         ob_start();
-        include __DIR__ .'/../view/'. $this -> template;
-
+        include (__DIR__ .'/../view/layout/'. $layout);
         echo ob_get_clean();
     }
 

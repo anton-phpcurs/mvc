@@ -39,34 +39,44 @@ extends Controller
     public function actionMyLots ()
     {
         $page   = (count ($this -> valueURL) > 0) ? $this -> valueURL[0] : 1;
-        Log::sendToScreen(__FILE__, __LINE__, 'Сделать выборку согласно $_SESSION["search"] данные в БД');
+//Log::sendToScreen(__FILE__, __LINE__, 'Сделать выборку согласно $_SESSION["search"] данные в БД');
 
         if (isset($_SESSION['search'])) {
-            Log::sendToScreen(__FILE__, __LINE__, 'Получить данные из modelUsers (session_user_id), modelLots на страницу №:'. $page .' согласно поиску: '. $_SESSION['search']);
+//Log::sendToScreen(__FILE__, __LINE__, 'Получить данные из modelUsers (session_user_id), modelLots на страницу №:'. $page .' согласно поиску: '. $_SESSION['search']);
         } else {
-            Log::sendToScreen(__FILE__, __LINE__, 'Получить данные из modelUsers (session_user_id) и ВСЕ данные modelLots на страницу №:'. $page);
+//Log::sendToScreen(__FILE__, __LINE__, 'Получить данные из modelUsers (session_user_id) и ВСЕ данные modelLots на страницу №:'. $page);
         }
-        Log::sendToScreen(__FILE__, __LINE__, 'View -> render');
+//Log::sendToScreen(__FILE__, __LINE__, 'View -> render');
+        $view = new View();
+        $view -> setTemplate ('mylots');
+        $view -> render ();
     }
 
 
     public function actionMyBids ()
     {
         $page   = (count ($this -> valueURL) > 0) ? $this -> valueURL[0] : 1;
-        Log::sendToScreen(__FILE__, __LINE__, 'Сделать выборку согласно $_SESSION["search"] данные в БД');
+//Log::sendToScreen(__FILE__, __LINE__, 'Сделать выборку согласно $_SESSION["search"] данные в БД');
 
         if (isset($_SESSION['search'])) {
-            Log::sendToScreen(__FILE__, __LINE__, 'Получить данные из modelUsers (session_user_id), modelLots на страницу №:'. $page .' согласно поиску: '. $_SESSION['search']);
+//Log::sendToScreen(__FILE__, __LINE__, 'Получить данные из modelUsers (session_user_id), modelLots на страницу №:'. $page .' согласно поиску: '. $_SESSION['search']);
         } else {
-            Log::sendToScreen(__FILE__, __LINE__, 'Получить данные из modelUsers (session_user_id) и ВСЕ данные modelLots на страницу №:'. $page);
+//Log::sendToScreen(__FILE__, __LINE__, 'Получить данные из modelUsers (session_user_id) и ВСЕ данные modelLots на страницу №:'. $page);
         }
-        Log::sendToScreen(__FILE__, __LINE__, 'View -> render');
+//Log::sendToScreen(__FILE__, __LINE__, 'View -> render');
+
+        $view = new View();
+        $view -> setTemplate ('mybids');
+        $view -> render ();
     }
 
     public function actionSettings ()
     {
-        Log::sendToScreen(__FILE__, __LINE__, 'Получить настройки из modelUsers (session_user_id)');
-        Log::sendToScreen(__FILE__, __LINE__, 'View -> render');
+//Log::sendToScreen(__FILE__, __LINE__, 'Получить настройки из modelUsers (session_user_id)');
+//Log::sendToScreen(__FILE__, __LINE__, 'View -> render');
+        $view = new View();
+        $view -> setTemplate ('settings');
+        $view -> render ();
     }
 
 
