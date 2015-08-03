@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Панель Администратора</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/admin.css">
+  </head>
+  <body>
+   <div class="container">
+       <!--HEADER-->
+        <div class="page-header">
+            <h2>Панель Администратора</h2>
+            <span class="right" id="dateTime"></small></span>
+       </div>
+       <!--END HEADER-->
+       <!--MAIN-->
+       <div class="row">
+          <!--MENU-->
+           <ul class="nav nav-pills nav-stacked col-md-3">
+               <li><a href="/admin/banlist" class="btn btn-primary">Бан-лист</a></li>
+               <li><a href="/admin/user" class="btn btn-primary">Управление пользователями</a></li>
+               <li><a href="/admin/lots" class="btn btn-primary">Товары</a></li>
+               <li><a href="/admin/config" class="btn btn-primary">Настройки</a></li>
+           </ul>
+           <!--END MENU-->
+           <!--PANEL-->
+
+                    <?= $content; ?>
+
+           <!--END PANEL-->
+       </div>
+       <!--END MAIN-->
+   </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/js/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/admin.js"></script>
+  </body>
+</html>

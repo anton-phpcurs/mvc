@@ -1,0 +1,11 @@
+.img-circle{
+    width: 120px;
+    height: 120px;
+    image-rendering: auto;
+}
+
+.img-rounded{
+    width: 140px;
+    height: 140px;
+    image-rendering: auto
+}

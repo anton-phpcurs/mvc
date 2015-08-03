@@ -11,6 +11,11 @@ class Controller_404
 {
     public function execute ()
     {
-        Log::sendToScreen(__FILE__, __LINE__, 'PAGE 404', false);
+        //Log::sendToScreen(__FILE__, __LINE__, 'PAGE 404', false);
+
+        $view = new View();
+        $view -> setValue(array('path_style' => '/public/style/'));
+        $view -> setTemplate ('layout/layout.phtml');
+        $view -> render ();
     }
 }

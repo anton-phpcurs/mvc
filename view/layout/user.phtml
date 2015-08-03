@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Bazar</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+    <!-- Bootstrap theme -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-theme.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-datetimepicker.css">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body role="document">
+
+<!-- Fixed navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+
+    <div class="navbar-header pull-left">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only"></span>
+        </button>
+        <a class="navbar-brand" href="/">BAZAR</a>
+    </div>
+
+    <div class="container">
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/goods/search?cat=1">Категория 1</a></li>
+                <li><a href="/goods/search?cat=2">Категория 2</a></li>
+                <li><a href="/goods/search?cat=3">Категория 3</a></li>
+                <li><a href="/goods/search?cat=4">Категория 4</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+
+    <div class="navbar-collapse pull-right" >
+        <ul class="nav navbar-nav">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="glyphicon glyphicon-search"></span><b class="caret"></b></a>
+                <ul class="dropdown-menu" id="searchDropDown">
+                    <li class="dropdown-header">
+                        <form class="form" role="form">
+                            <div class="form-group has-feedback input-group ">
+                                <input required type="search" class="form-control" placeholder="Поиск ...">
+                                <span class="input-group-btn"><button type="submit" class="btn btn-default form-control"><span class="glyphicon glyphicon-search"></span></button></span>
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="glyphicon glyphicon-user"></span>	Войти на сайт
+                    <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#" data-toggle="modal" data-target="#registrationModal">
+                            <span class="glyphicon glyphicon-copy"></span>
+                            Регистрация</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">
+                        <span class="glyphicon glyphicon-refresh"></span>	Вход<br><br>
+
+                        <!-- LOG IN HEADER  modified by sebastian at 30.07.2015****************************************************** -->
+                        <?php if(isset($_SESSION['user'])){ ?>
+                            <div class="logout">
+                                <?php echo $_SESSION['user_name']; ?>
+                                <a href="/?logout">Выход</a>
+                            </div>
+                        <?php } else { ?>
+                            <form class="form" role="form" id="logInHeader" action="" method="post">
+                                <div class="form-group has-feedback">
+                                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                                    <input name="email" required type="email" class="form-control" placeholder="Email"
+                                           maxlength="45">
+
+                                </div>
+                                <div class="form-group has-feedback">
+                                    <span class="glyphicon glyphicon-th form-control-feedback"></span>
+                                    <input name="password" type="password" class="form-control" placeholder="Пароль"
+                                           maxlength="16">
+
+                                </div>
+                                <!--<div class="checkbox form-control">
+                                  <label>
+                                        <input type="checkbox"> Запомнить меня
+                                      </label>
+                                </div>-->
+                                <button type="submit" class="btn btn-info form-control">
+                                    <span class="glyphicon glyphicon-ok"></span>	Войти</button>
+                            </form>
+                        <?php } ?>
+                        <!-- LOG IN HEADER end ****************************************************** -->
+
+
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div><!--/.nav-collapse -->
+</div>
+
+<!-- Modal РЕГИСТРАЦИЯ  modified by sebastian at 30.07.2015 -->
+<div class="modal fade" id="registrationModal" tabindex="-1" role="dialog" aria-labelledby="registrationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Форма регистрации на BAZAR'е</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" id="registpationPopupForm">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Имя</label>
+                        <div class="col-sm-10">
+                            <input name="userName" required type="text" class="form-control" placeholder="Имя пользователя" maxlength="20" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Фамилия</label>
+                        <div class="col-sm-10">
+                            <input name="userSurname" required type="text" class="form-control" placeholder="Фамилия пользователя" maxlength="30">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label">Email</label>
+                        <div class="col-sm-10">
+                            <input name="userEmail" required type="email" class="form-control" placeholder="Email" maxlength="45">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Телефон</label>
+                        <div class="col-sm-10">
+                            <input name="userTel" id="userTel" required type="tel" class="form-control" placeholder="Телефон в формате +380 (ХХ) ХХ ХХ ХХХ">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Пароль</label>
+                        <div class="col-sm-10">
+                            <input name="userPassword" id="userPassword" maxlength="16" required type="password" class="form-control" placeholder="Пароль">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Повторите пароль</label>
+                        <div class="col-sm-10">
+                            <input name="userPasswordAgain" maxlength="16" required type="password" class="form-control" placeholder="Повтор пароля">
+                        </div>
+                    </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    <span class="glyphicon glyphicon-remove"></span>	Закрыть</button>
+                <input type="submit" class="btn btn-success" value="Зарегистрироваться"></input>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal РЕГИСТРАЦИЯ КОНЕЦ-->
+
+<!--Здесь ВСТАВЛЯЕМ КОНТЕТ!!!!!!!!!!!!-->
+
+<div class="container-fluid profile">
+    <div class="row-fluid">
+        <div class="col-lg-2">
+            <!--Sidebar content-->
+            <img class="img-rounded" src="/img/no_avatar.jpg" alt="avatar">
+
+            <ul class="nav nav-pills nav-stacked">
+                <li><a href="/user/mylots">Лоты<span class="badge pull-right">10</span></a></li>
+                <li><a href="/user/mybids">Аукционы<span class="badge pull-right">7</span></a></li>
+                <li><a href="/user/settings">Настройки</a></li>
+            </ul>
+        </div>
+
+<?=$content?>
+
+<div id="fix-footer"></div>
+<div id="footer">
+    <div class="jumbotron">
+        <div class="container">
+            <p class="text-muted pull-left">BAZAR (c) 2015</p>
+            <a href="/page/contactus"><button type="submit" class="btn btn-default pull-right">
+                    <span class="glyphicon glyphicon-question-sign"></span>	FAQ</button></a>
+        </div>
+    </div>
+</div>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/jquery.validate.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+
+<script type="text/javascript" src="/js/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript" src="/js/validation.js"></script>
+<script type="text/javascript" src="/js/customize.js"></script>
+</body>
+</html>

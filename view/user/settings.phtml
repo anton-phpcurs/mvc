@@ -1,0 +1,66 @@
+<div class="container-fluid profile">
+    <div class="row-fluid">
+        <div class="col-lg-2">
+            <!--Sidebar content-->
+            <img class="img-rounded" src="/img/no_avatar.jpg" alt="avatar">
+
+
+
+            <ul class="nav nav-pills nav-stacked">
+                <li><a href="/user/mylots">Лоты<span class="badge pull-right">10</span></a></li>
+                <li><a href="/user/mybids">Аукционы<span class="badge pull-right">7</span></a></li>
+                <li class="active"><a href="/user/settings">Настройки</a></li>
+            </ul>
+        </div>
+        <div class="col-lg-9">
+        <div class="prof_settings">
+            <h3>Изменить пароль</h3>
+            <form action="" method="post" >
+                <table>
+                    <tr>
+                        <td><input type="text" placeholder="Старый пароль" required name = "old_pwd"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" placeholder="Новый пароль" required name = "pwd"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="password" placeholder="Повторите пароль" required  name = "pwd-rep"></td>
+                    </tr>
+                </table>
+                <button type="submit">Изменить пароль</button>
+            </form>
+        </div>
+
+                <div class="prof_settings">
+                    <h3>Изменить email</h3>
+                    <form action="" method="post" >
+                        <table>
+                            <tr>
+                                <td><input type="text" value="somemail@mail.ru"  type = "email" name = "email"></td>
+                            </tr>
+                        </table>
+                        <button type="submit">Изменить email</button>
+                    </form>
+                </div>
+
+                <div class="prof_settings">
+                    <h3>Личные данные</h3>
+                    <form action="" method="post" >
+                        <table>
+                            <tr>
+                                <td><input type="text" placeholder="Фамилия"  name = "second_name"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" placeholder="Имя"  name = "first_name"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="tel" placeholder="Телефон"   name = "tel"></td>
+                            </tr>
+                        </table>
+                        <button type="submit">Изменить данные</button>
+                    </form>
+                </div>
+
+
+</div>
+        </div></div>

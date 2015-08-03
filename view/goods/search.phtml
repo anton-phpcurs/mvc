@@ -1,0 +1,267 @@
+<!--create by Pavel
+modified design by sebastian 30.07.2015 12:00
+сама структура не изменена
+мелкие фиксы дизайна
+профиксена ДИВная вёрстка-->
+
+        <!--++Блок поиска++-->
+<div class="container">
+         <div class="col-md-10 row jumbotron">
+            <h1>Категория {#}</h1>
+            <hr>
+            
+            <form role="form" class="form container" id="searchGoodsForm">
+                    <div class="form-group">
+                        <div class="col-sm-10">
+                            <input name="searchText" type="text" class="form-control" placeholder="Введите ключевое слово для поиска">    
+                        </div>
+                        <div class="col-sm-2">
+                            <input class="btn btn-info" type="submit" value="Поиск">
+                        </div>
+                    </div><!-- /input-group -->
+            </form>
+            <hr><br>
+        <!--++Блок поиска++-->
+        <!--++Блок фитров++-->
+        <form role="form" class="form-inline" id="filterForm">
+            <div class="container">
+                <div class="form-group">
+                <!--
+                    <div class="form-input">
+                        <label>
+                            <input name="category1Check" type="checkbox" value="1">
+                            Категория 1
+                        </label>
+                    </div>
+                    <div class="form-input">
+                        <label>
+                            <input name="category2Check" type="checkbox" value="2">
+                            Категория 2
+                        </label>
+                    </div>
+                    <div class="form-input">
+                        <label>
+                            <input name="category3Check" type="checkbox" value="3">
+                            Категория 3
+                        </label>
+                    </div>
+                    <div class="form-input">
+                        <label>
+                            <input name="category4Check" type="checkbox" value="4">
+                            Категория 4
+                        </label>
+                    </div>
+                </div>
+                -->
+                <div class="form-group">
+                        <div class="form-input">
+                            <input name="minPrice" type="text" class="form-control" placeholder="Цена от...">
+                        </div>
+                        <div class="form-input">
+                            <input name="maxPrice" type="text" class="form-control" placeholder="Цена до...">
+                        </div>
+                </div>
+
+            </div>
+
+                    
+            <div class="container">
+                    <div class="pull-right form-input">
+                            <button type="submit" class="btn btn-info pull-right"><span class="glyphicon glyphicon-ok"></span>     Применить фильтр</button>    
+                    </div>
+                    <div class="input-group">
+                            <span class="input-group-addon">Сортировка по </span>
+                            <select name="sortGoods" class="form-control">
+                                <option value="1">цене (убывание)</option>
+                                <option value="2">цене (возрастание)</option>
+                                <option value="3">дате добавления</option>
+                            </select>    
+                        </div>
+            </div>
+                    
+
+        </form>
+        <!--++Блок фильтров++-->
+
+
+
+
+
+
+    </div>
+    <!--++Блок вывод товаров++-->
+    <div class="goods-output container well col-md-10">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                   <h4 class="text-center panel-title"><a href="/goods/description?tid=n">Название товара</a></h4>
+                </div>
+                <div class="panel-body">
+                    <a href="/goods/description" class="pull-left"><img src="/img/goods-desc.png" alt="box" class="img-rounded"></a>
+                    <p class="small">Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. </p>
+                    <ul class="list-unstyled">
+                        <li><a href="mailto:mail@example.com"><span class="glyphicon glyphicon-envelope"></span> mail продавца</a></li>
+                        <li><a href="tel:77777777"><span class="glyphicon glyphicon-phone"></span> 77777777</a></li>
+                        <li><a href="tel:77777777"><span class="glyphicon glyphicon-info-sign"></span> Состояние товара</a></li>
+                    </ul>
+                    <div class="pull-right">
+                        <h4>Цена: <span>1 денег</span></h4>
+                        <div class="form-group has-feedback">
+                            <span class="glyphicon glyphicon-tags form-control-feedback"></span>
+                            <input type="button" class="form-control btn btn-success" value="Сделать ставку" data-toggle="modal" data-target="#makeBidModal">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                   <h4 class="text-center panel-title"><a href="?action=goods_description">Название товара</a></h4> 
+                </div>
+                <div class="panel-body">
+                    <a href="/goods/description" class="pull-left"><img src="/img/goods-desc.png" alt="box" class="img-rounded"></a>
+                    <p class="small">Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. </p>
+                    <ul class="list-unstyled">
+                        <li><a href="mailto:mail@example.com"><span class="glyphicon glyphicon-envelope"></span> mail продавца</a></li>
+                        <li><a href="tel:77777777"><span class="glyphicon glyphicon-phone"></span> 77777777</a></li>
+                        <li><a href="tel:77777777"><span class="glyphicon glyphicon-info-sign"></span> Состояние товара</a></li>
+                    </ul>
+                    <div class="pull-right">
+                        <h4>Цена: <span>1 денег</span></h4>
+                        <div class="form-group has-feedback">
+                            <span class="glyphicon glyphicon-tags form-control-feedback"></span>
+                            <input type="button" class="form-control btn btn-success" value="Сделать ставку" data-toggle="modal" data-target="#makeBidModal">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                   <h4 class="text-center panel-title"><a href="?action=goods_description">Название товара</a></h4> 
+                </div>
+                <div class="panel-body">
+                    <a href="/goods/description" class="pull-left"><img src="/img/goods-desc.png" alt="box" class="img-rounded"></a>
+                    <p class="small">Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. </p>
+                    <ul class="list-unstyled">
+                        <li><a href="mailto:mail@example.com"><span class="glyphicon glyphicon-envelope"></span> mail продавца</a></li>
+                        <li><a href="tel:77777777"><span class="glyphicon glyphicon-phone"></span> 77777777</a></li>
+                        <li><a href="tel:77777777"><span class="glyphicon glyphicon-info-sign"></span> Состояние товара</a></li>
+                    </ul>
+                    <div class="pull-right">
+                        <h4>Цена: <span>1 денег</span></h4>
+                        <div class="form-group has-feedback">
+                            <span class="glyphicon glyphicon-tags form-control-feedback"></span>
+                            <input type="button" class="form-control btn btn-success" value="Сделать ставку" data-toggle="modal" data-target="#makeBidModal">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                   <h4 class="text-center panel-title"><a href="?action=goods_description">Название товара</a></h4> 
+                </div>
+                <div class="panel-body">
+                    <a href="/goods/description" class="pull-left"><img src="/img/goods-desc.png" alt="box" class="img-rounded"></a>
+                    <p class="small">Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. Описание товара. </p>
+                    <ul class="list-unstyled">
+                        <li><a href="mailto:mail@example.com"><span class="glyphicon glyphicon-envelope"></span> mail продавца</a></li>
+                        <li><a href="tel:77777777"><span class="glyphicon glyphicon-phone"></span> 77777777</a></li>
+                        <li><a href="tel:77777777"><span class="glyphicon glyphicon-info-sign"></span> Состояние товара</a></li>
+                    </ul>
+                    <div class="pull-right">
+                        <h4>Цена: <span>1 денег</span></h4>
+                        <div class="form-group has-feedback">
+                            <span class="glyphicon glyphicon-tags form-control-feedback"></span>
+                            <input type="button" class="form-control btn btn-success" value="Сделать ставку" data-toggle="modal" data-target="#makeBidModal">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+
+
+
+    <!--++Блок вывод товаров++-->
+    <!--++Блок paginator++-->
+    <div class="paginator pull-right">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <ul class="pagination">
+                    <li><a href="#">&laquo;</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--++Блок paginator++-->
+
+     <!-- PRESENT TYPE -->
+    <div class="btn-group pull-left" data-toggle="buttons">
+          <label class="btn btn-default">
+                  <input type="radio" name="options" id="tableView">
+                  <span class="glyphicon glyphicon-th"></span>  Таблица
+                </label>
+          <label class="btn btn-default active">
+                  <input type="radio" name="options" id="listView" class="active">
+                  <span class="glyphicon glyphicon-th-list"></span> Список
+                </label>
+        </div>
+    </div>
+
+<!-- Modal СДЕЛАТЬ СТАВКУ-->
+    <div class="modal fade" id="makeBidModal" tabindex="-1" role="dialog" aria-labelledby="makeBidModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Осуществить ставку на лот //выбранный лот//</h4>
+                </div>
+                <div class="modal-body">
+
+                    <ul class="list-unstyled">
+
+                        <div class="list-group">
+                            <a href="#" class="list-group-item">
+                                <h4 class="list-group-item-heading">Ставка</h4>
+                                <p class="list-group-item-text">Кто поставил</p>
+                                <a href="#" class="list-group-item">
+                                    <h4 class="list-group-item-heading">Ставка</h4>
+                                    <p class="list-group-item-text">Кто поставил</p>
+                                    <a href="#" class="list-group-item">
+                                        <h4 class="list-group-item-heading">Ставка</h4>
+                                        <p class="list-group-item-text">Кто поставил</p>
+                                    </a>
+                                    <a href="#" class="list-group-item active">
+                                        <h4 class="list-group-item-heading">Последняя ставка</h4>
+                                        <p class="list-group-item-text">Кто поставил</p>
+                                    </a>
+                        </div>
+                    </ul>
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Ваша ставка </label>
+                            <div class="col-sm-10">
+                                <input required type="text" class="form-control" placeholder="Введите сумму выше последней ставки">
+                            </div>
+                        </div>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        <span class="glyphicon glyphicon-remove"></span>    Закрыть</button>
+                    <button type="submit" class="btn btn-success">
+                        <span class="glyphicon glyphicon-ok"></span>    Сделать ставку</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal СДЕЛАТЬ СТАВКУ-->

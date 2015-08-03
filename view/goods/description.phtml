@@ -1,0 +1,40 @@
+<!--create by Pavel-->
+    <!--++блок описание товара++-->
+<?php if (!$description) App::redirect('/goods/notfound'); ?>
+    <div class="container goods-description">
+        <div class="row">
+            <div class="col-lg-4 col-md-4">
+                <img src="/img/goods-desc.png" alt="box" class="img-rounded">
+            </div>
+            <div class="col-lg-8 col-md-8 goods-info">
+                <h3 class="text-center"><?= $description['title']; ?></h3>
+                <p><?= $description['description']; ?></p>
+                <p>Категория товара: <?= $description['name']; ?></p>
+                <a href="/user/page?id=<?= $description['user_id']?>"><?= $description['first_name']; ?> <?= $description['last_name']; ?></a>
+                <p>Цена: <span><?= $description['start_price']; ?></span></p>
+                <form class="form-inline">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Моя ставка...">
+                    </div>
+                    <button type="submit" class="btn btn-default">Ставка!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--++блок описание товара++-->
+    <!--++блок похожие товары++-->
+    <div class="container goods-similar">
+        <h3 class="text-center">Ещё товары из этой категории</h3>
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <ul class="pagination">
+                    <li><a href="#" class="glyphicon glyphicon-chevron-left corners-rounded"></a></li>
+                    <?php foreach ($similar as $sim) : ?>
+                        <li><a href="/goods/description?id=<?= $sim['id']?>" class="corners-rounded"><img src="/img/goods-desc.png" alt="box" class="img-rounded"></a></li>
+                    <?php endforeach; ?>
+                    <li><a href="#" class="glyphicon glyphicon-chevron-right corners-rounded"></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--++блок похожие товары++-->

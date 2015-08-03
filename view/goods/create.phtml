@@ -1,0 +1,50 @@
+<!--++create by Pavel++-->
+<!--++modified by sebastian 03-08-2015
+modified names and placeholders, added id`s++-->
+<div class="container crud-container">
+    <h2 class="text-center">Добавить лот</h2>
+    <div class="center-block crud">
+        <form action="" method="POST" enctype="multipart/form-data" id="createProductUnit">
+            <div class="form-group">
+                <p class="text-center">Название товара</p>
+                <input required type="text" class="form-control" name="productName" placeholder="Название продаваемого товара">
+            </div>
+            <div class="form-group">
+                <p class="text-center">Описание товара</p>
+                <textarea required class="form-control" rows="3" name="productDescription" placeholder="Короткое описание продаваемого товара"></textarea>
+            </div>
+            <div class="form-group">
+                <p class="text-center">Категория товара</p>
+                <select class="form-control" name="productCategory">
+                    <option value="1">Категория 1</option>
+                    <option value="2">Категория 2</option>
+                    <option value="3">Категория 3</option>
+                    <option value="4">Категория 4</option>
+                    <option value="n">Категория n</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <p class="text-center">Стартовая цена</p>
+                <input  required type="text" class="form-control" name="productStartPrice" placeholder="Стартовая цена товара: <00> или <00.00>">
+            </div>
+            <div class="form-group">
+                <p class="text-center">Шаг цены</p>
+                <input  required type="text" class="form-control" name="productDeltaPrice" placeholder="Шаг увеличения ставки на товар: <00> или <00.00>">
+            </div>
+            
+                    <div class="form-group">
+                        <p class="text-center">Дата окончания аукциона</p>
+                        <div class='input-group date' id='datetimepicker10'>
+                            <input  required type='text' class="form-control" name="productAuctEndTime" placeholder="ДД-ММ-ГГ чч:мм"/>
+                        </div>
+                    </div>
+
+            <div class="form-group">
+                <p class="text-center">Загрузить фото товара</p>
+                <input  required type="file" name="productPhoto">
+            </div>
+            
+            <input type="submit" class="btn btn-success" value="Добавить лот">
+        </form>
+    </div>
+</div>

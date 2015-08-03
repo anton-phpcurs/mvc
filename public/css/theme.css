@@ -1,0 +1,254 @@
+.panel{
+    margin:auto;
+}
+
+/* Настройки профиля  */
+.profile {
+    margin-top: 50px;
+}
+
+.avatar {
+    width-max: 250px;
+    /*heigth: 200px;*/
+}
+.prof_settings td{
+   padding-top: 10px;
+    padding-bottom: 10px;
+}
+.prof_settings > form{
+    padding: 40px;
+    box-shadow:
+    0 1px 4px rgba(0, 0, 0, .3),
+    -23px 0 20px -23px rgba(0, 0, 0, .8),
+    23px 0 20px -23px rgba(0, 0, 0, .8),
+    0 0 40px rgba(0, 0, 0, .1) inset;
+}
+/*create by Pavel GOODS/CREATE ******************************************************************************************************/
+.crud-container
+{
+    margin-top: 50px;
+}
+.crud
+{
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 15px;
+    width: 400px;
+}
+
+.crud p
+{
+    margin: 15px;
+}
+
+h2.text-center
+{
+    margin: 30px auto;
+}
+
+.crud input, .crud textarea
+{
+    width: 100%;
+}
+/*create by Pavel GOOODS/DESCRIPTION ***********************************************************************************************/
+.goods-description
+{
+    margin-top: 100px !important;
+}
+
+.goods-description img
+{
+    height: 100%;
+    width: 100%;
+    margin: 15px 0;
+}
+
+.goods-description, .goods-similar
+{
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.goods-description .goods-info > a
+{
+    display: block;
+    margin: 15px auto;
+}
+
+.goods-description .goods-info p
+{
+    margin: 15px auto;
+}
+
+.goods-description .goods-info p span
+{
+    color: #f00;
+    font-size: 20px;
+}
+
+.goods-similar ul a
+{
+    display: block;
+    margin: 5px;
+    padding: 0;
+    opacity: 0.8;
+}
+
+.goods-similar ul a:hover
+{
+    opacity: 1;
+}
+.goods-similar .pagination .glyphicon-chevron-left
+{
+    margin-left: 210px;
+}
+
+.goods-similar .pagination .glyphicon-chevron-left, .goods-similar .pagination .glyphicon-chevron-right
+{
+    margin-top: 52px;
+    border: none;
+}
+
+.goods-similar ul > li img
+{
+    height: 120px;
+    width: 120px;
+}
+
+.corners-rounded
+{
+    border-radius: 5px;
+}
+/* created by Shamil ADMIN *****************************************************************************************/
+.admin_mail_span_data{
+    float: right;
+}
+.img-circle{
+    height: 140px;
+    width: 140px;
+}
+/* created by MaksMaks page 404 *********************************************************************************************/
+body{
+    background-color: #f0f9fe;
+    margin: auto;
+}
+.notfind{
+    margin: auto;
+    width: 900px;
+    height: 600px;
+    margin-top: 200px;
+}
+.notfind div{
+    float: left;
+}
+
+.notfind > img{
+    width: 500px;
+    height: 300px;
+}
+/* sing in ???????????????? **********************************************************/
+.sign-in-form-wrap {
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 175px;
+}
+/*************************************************************************/
+/* mods for bootstrap classeds , sebastian*/
+/*************************************************************************/
+/* sebastian validation popovers*/
+.error{
+  padding: 5px;
+  margin: 3px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+
+/* sebastian validation popovers (end)*/
+
+
+
+ /*sebastian 30.07.2015 LAST footer fix (костыль,ребята, сорян)*/
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 150px;
+}
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+#footer > .jumbotron{
+  margin-bottom: -20px;
+}
+#fix-footer{
+  margin-top: 150px;
+}
+ /*sebastian 30.07.2015 footer fix (end)------------*/
+
+/*sebastian modify goods-search*/
+#filterForm input{
+  margin: 10px;
+}
+.goods-output .panel{
+  width: 100%;
+}
+/*sebastian modify goods-search (end)*/
+
+ section > img{
+  height: 100px;
+ }
+ #searchDropDown{
+  width: 400px;
+  margin-left:-200px;
+ }
+
+ .panel > .panel-body > img, .panel > .panel-body > a > img{
+  width: 180px;
+  margin: 10px; 
+ }
+ .panel{
+  width: 220px;
+  margin: 10px;
+ }
+ .navbar > .navbar-collapse{
+  margin-top:-50px;
+ }
+.navbar > .navbar-collapse > .nav > .dropdown > .dropdown-menu{
+  margin-left:-40px; 
+}
+ 
+ /* CUSTOMIZE THE CAROUSEL
+}
+-------------------------------------------------- */
+/* Carousel base class */
+.carousel {
+  height: 500px;
+  margin-bottom: 60px;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 500px;
+  background-color: #777;
+}
+.carousel-inner > .item > img {
+  position: relative;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 500px;
+}
