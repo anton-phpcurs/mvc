@@ -6,18 +6,25 @@
  * Date: 02.08.2015
  * Time: 14:02
  */
+
 abstract class Controller
 {
-    protected $value;
+    protected $valueURL;
+    protected $valuePOST;
 
-    public function setValue ($value)
+    public function setValueFromURL ($value)
     {
-        $this -> value = $value;
+        $this -> valueURL = $value;
+    }
+
+    public function setValueFromPOST ($value)
+    {
+        $this -> valuePOST = $value;
     }
 
     public function execute ()
     {
-        $action = 'action'. array_shift ($this -> value);
+        $action = 'action'. array_shift ($this -> valueURL);
         if (method_exists (get_class($this), $action)) {
             $this->$action ();
         } else {

@@ -38,7 +38,7 @@ class Log
      * @param $message
      * @param bool|true $stop
      */
-    public static function sendToScreen ($file, $line, $message, $stop = true)
+    public static function sendToScreen ($file, $line, $message, $stop = false)
     {
         echo sprintf (self::MSG_SCREEN, $file, $line, $message);
         if ($stop) die;
