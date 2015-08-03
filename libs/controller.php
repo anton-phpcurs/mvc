@@ -7,7 +7,7 @@
  * Time: 14:02
  */
 
-abstract class Controller
+class Controller
 {
     protected $valueURL;
     protected $valuePOST;
@@ -28,8 +28,13 @@ abstract class Controller
         if (method_exists (get_class($this), $action)) {
             $this->$action ();
         } else {
-            header('Location: '. Config::ROOT_URL .'/404');
-            die();
+            $this -> linkError();
         }
+    }
+
+    public function linkError ()
+    {
+        header('Location: '. Config::ROOT_URL .'/404');
+        die;
     }
 }
