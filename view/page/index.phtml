@@ -23,7 +23,7 @@
                 <div class="carousel-caption">
                     <h1>Заголовок 2</h1>
                     <p>Описание второго рекламного баннера.</p>
-                    <p><a class="btn btn-lg btn-primary" href="/goods/search?cat=2" role="button">Скидки в категории 2!</a></p>
+                    <p><a class="btn btn-lg btn-primary" href="<?=$url?>/goods/search?cat=2" role="button">Скидки в категории 2!</a></p>
                 </div>
             </div>
         </div>
@@ -51,7 +51,7 @@
             <div class="col-sm-4">
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><a href="/goods/description?id=<?= $product['id']?>"><?= $product['title']?></a></h3>
+                        <h3 class="panel-title"><a href="<?=$url?>/goods/description?id=<?= $product['id']?>"><?= $product['title']?></a></h3>
                     </div>
                     <div class="panel-body">
                         <img class="img-rounded" src="/img/goods-desc.png">

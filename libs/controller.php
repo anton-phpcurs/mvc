@@ -28,13 +28,7 @@ class Controller
         if (method_exists (get_class($this), $action)) {
             $this->$action ();
         } else {
-            $this -> linkError();
+            Application::redirect(Config::ROOT_URL .'/404');
         }
-    }
-
-    public function linkError ()
-    {
-        header('Location: '. Config::ROOT_URL .'/404');
-        die;
     }
 }

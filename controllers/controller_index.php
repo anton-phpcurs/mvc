@@ -9,10 +9,20 @@
 class Controller_Index
     extends Controller
 {
+/*
     public function execute ()
     {
         $view = new View();
         $view -> setTemplate ('index');
+        $view -> render ();
+    }
+*/
+    public function actionIndex ()
+    {
+
+        $view = new View();
+        $view -> setTemplate ('index');
+        //$view -> setValue (array);
         $view -> render ();
     }
 }

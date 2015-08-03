@@ -29,15 +29,14 @@ class View
         $layout ='';
 
         if (count ($this -> value) > 0) extract ($this -> value);
+        $url = Config::ROOT_URL;
 
         foreach ($folders as $folder) {
             $path = sprintf('%s/../view/%s/%s.phtml', __DIR__, $folder, $this -> template);
 
             if (file_exists($path)) {
                 if (($folder == 'page') || ($folder == 'goods') || ($folder == 'user')) {$layout = 'layout.phtml';}
-               // if ($folder == 'user') {$layout = 'user.phtml';}
                 if ($folder == 'admin') {$layout = 'admin.phtml';}
-
                 include_once ($path);
             }
         }

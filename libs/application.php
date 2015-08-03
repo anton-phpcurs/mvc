@@ -33,8 +33,7 @@ class Application
             $controller -> setValueFromPOST ($this -> valuePOST);
             $controller -> execute ();
         } else {
-            header('Location: '. Config::ROOT_URL .'/404');
-            die();
+            self::redirect(Config::ROOT_URL .'/404');
         }
     }
 
@@ -47,18 +46,28 @@ class Application
             array_shift ($arg);
         }
 
-        if($arg[0] === '') {$arg[0] = 'index';}
+        if($arg[0] == '') {
+            $arg[0] = 'index';
+            $arg[1] = 'index';
+        }
+
 
         for ($i = 0; $i < count ($arg); $i++) {
             if (!preg_match ('/^[a-zA-Z0-9_]+$/', $arg[$i])) {
-                Log::sendToScreen(__FILE__, __LINE__, 'Анализ запроса: '. $arg[$i], true);
                 $arg[0] = '404';
                 breack;
             }
         }
 
+
         $this -> controllerName = array_shift ($arg);
         $this -> valueURL = $arg;
         $this -> valuePOST = $_POST;
+    }
+
+    public static function redirect ($location)
+    {
+        header('Location: '. $location);
+        die;
     }
 }
