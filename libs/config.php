@@ -21,8 +21,8 @@ class Config
     const DB_NAME = 'bazar';
     const DB_USER = 'root';
     const DB_PASSWORD = '';
-
-    // const DB_DRIVER   = 'mysqli';
+    const DB_CHARSET = 'utf-8';
+    const DB_DRIVER   = 'mysql';
 
     const TIMEZONE  = 'Europe/Kiev';
     const VERSION   = '0.0';

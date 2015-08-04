@@ -9,16 +9,17 @@
 class Controller_Index
     extends Controller
 {
-/*
-    public function execute ()
-    {
-        $view = new View();
-        $view -> setTemplate ('index');
-        $view -> render ();
-    }
-*/
     public function actionIndex ()
     {
+        $model = new Model ();
+        $model -> connect();
+
+        $query = 'SELECT * FROM category WHERE id = 9';
+        $result =  $model ->select ($query);
+//var_dump ($result);
+
+        //Генерить меню полностью в переменную и передавать во вью
+        // Генерить полностью товары в переменную и передавать во вью
 
         $view = new View();
         $view -> setTemplate ('index');
