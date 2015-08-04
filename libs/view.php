@@ -28,8 +28,14 @@ class View
         $folders = array ('page', 'goods', 'user', 'admin');
         $layout ='';
 
+        //var_dump($this -> value); die;
+
+
         if (count ($this -> value) > 0) extract ($this -> value);
         $url = Config::ROOT_URL;
+
+        //var_dump($similar); die;
+
 
         foreach ($folders as $folder) {
             $path = sprintf('%s/../view/%s/%s.phtml', __DIR__, $folder, $this -> template);

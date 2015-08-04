@@ -31,6 +31,7 @@ extends Model
                 WHERE is_active=1
                 ORDER BY l.`created` DESC
                 LIMIT 6';
+
         $result['lastGoods'] =  $model ->select ($query);
 
         return $result;

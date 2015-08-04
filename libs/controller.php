@@ -28,7 +28,7 @@ class Controller
         if (method_exists (get_class($this), $action)) {
             $this->$action ();
         } else {
-            Application::redirect(Config::ROOT_URL .'/404');
+            Application::redirect_in ('/404');
         }
     }
 }

@@ -33,7 +33,7 @@ class Application
             $controller -> setValueFromPOST ($this -> valuePOST);
             $controller -> execute ();
         } else {
-            self::redirect(Config::ROOT_URL .'/404');
+            self::redirect_in('/404');
         }
     }
 
@@ -65,9 +65,15 @@ class Application
         $this -> valuePOST = $_POST;
     }
 
-    public static function redirect ($location)
+    public static function redirect_in ($location)
     {
-        header('Location: '. Config::ROOT_URL .$location);
+        header('Location: '. Config::ROOT_URL. $location);
+        die;
+    }
+
+    public static function redirect_out ($location)
+    {
+        header('Location: '. $location);
         die;
     }
 }
