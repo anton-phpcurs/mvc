@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    height: 50px;
+    background: #cccccc;
+}
+
+main {
+    height: 500px;
+}
+
+footer {
+    height: 50px;
+    background: #cccccc;
+}
+
+.wrapper {
+    margin: 0 auto;
+    border: 1px solid black;
+    width: 1080px;
+}
