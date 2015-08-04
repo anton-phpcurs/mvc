@@ -33,8 +33,21 @@ class Model
         $result = [];
 
         $rows = $this -> pdo -> query ($sql);
-        while ($row = $rows -> fetch ()) {$result[] = $row;}
+        //while ($row = $rows -> fetch ()) {$result[] = $row;}
+
+        foreach ($rows as $row) {
+            $result[] = $row;
+        }
 
         return $result;
+    }
+
+    public function selectOne ($sql) {
+        $result = $this -> select($sql);
+        if (count ($result) > 0) {
+            return $result[0];
+        } else {
+            return false;
+        }
     }
 }

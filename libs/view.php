@@ -40,12 +40,10 @@ class View
                 include_once ($path);
             }
         }
-
         $content = ob_get_clean();
 
         ob_start();
         include (__DIR__ .'/../view/layout/'. $layout);
         echo ob_get_clean();
     }
-
 }

@@ -67,7 +67,7 @@ class Application
 
     public static function redirect ($location)
     {
-        header('Location: '. $location);
+        header('Location: '. Config::ROOT_URL .$location);
         die;
     }
 }

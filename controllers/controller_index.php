@@ -11,19 +11,16 @@ class Controller_Index
 {
     public function actionIndex ()
     {
-        $model = new Model ();
-        $model -> connect();
-
-        $query = 'SELECT * FROM category WHERE id = 9';
-        $result =  $model ->select ($query);
-//var_dump ($result);
+        $model = new Model_Index();
+        $result = $model -> getIndex();
 
         //Генерить меню полностью в переменную и передавать во вью
         // Генерить полностью товары в переменную и передавать во вью
 
         $view = new View();
         $view -> setTemplate ('index');
-        //$view -> setValue (array);
+        $view -> setValue ($result);
         $view -> render ();
     }
+
 }

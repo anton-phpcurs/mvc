@@ -6,7 +6,7 @@
  * Time: 23:42
  */
 
-class Controller_Goods
+class Controller_Lot
     extends Controller
 {
     public function actionCreate ()
@@ -18,8 +18,17 @@ class Controller_Goods
 
     public function actionDescription ()
     {
+        if (count ($this -> valueURL) == 0) Application::redirect('/404');
+        $id = $this -> valueURL[0];
+
+        $model = new Model_Lot();
+        $result = $model -> getDescription ($id);
+
+        if (!$result['description']) Application::redirect('/lot/notfound');
+
         $view = new View();
         $view -> setTemplate ('description');
+        $view -> setValue ($result);
         $view -> render ();
     }
 
