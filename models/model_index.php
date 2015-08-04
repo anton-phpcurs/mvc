@@ -19,9 +19,6 @@ extends Model
         $model = new Model ();
         $model -> connect();
 
-        $query = 'SELECT * FROM category; // WHERE id = 9';
-        $result['category'] =  $model ->select ($query);
-
         $query = 'SELECT l.`created`,l.id,l.title,l.description,c.name,u.first_name,u.last_name,u.email,u.phone
                 FROM lot l
                 JOIN category c

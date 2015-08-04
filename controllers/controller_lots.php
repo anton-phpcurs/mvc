@@ -24,11 +24,10 @@ class Controller_Lots
         }
 
         $model = new Model_Lot();
-        $result = $model -> getAll ($page);
+        $result = $model -> getAllOnPage ($page);
 
         if (!$result) Application::redirect_in('/lot');
 
-        //Log::sendToScreen(__DIR__, __LINE__, 'Надо прикрутить страничку ALL', true);
         $view = new View();
         $view -> setTemplate ('search');
         $view -> setValue ($result);
@@ -59,6 +58,13 @@ class Controller_Lots
     }
 
     public function actionSearch ()
+    {
+        $view = new View();
+        $view -> setTemplate ('search');
+        $view -> render ();
+    }
+
+    public function actionCategory ()
     {
         $view = new View();
         $view -> setTemplate ('search');

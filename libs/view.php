@@ -28,20 +28,23 @@ class View
         $folders = array ('page', 'goods', 'user', 'admin');
         $layout ='';
 
-        //var_dump($this -> value); die;
-
-
         if (count ($this -> value) > 0) extract ($this -> value);
         $url = Config::ROOT_URL;
-
-        //var_dump($similar); die;
-
 
         foreach ($folders as $folder) {
             $path = sprintf('%s/../view/%s/%s.phtml', __DIR__, $folder, $this -> template);
 
             if (file_exists($path)) {
-                if (($folder == 'page') || ($folder == 'goods') || ($folder == 'user')) {$layout = 'layout.phtml';}
+                if (($folder == 'page') || ($folder == 'goods') || ($folder == 'user')) {
+                    $layout = 'layout.phtml';
+
+                    $model = new Model ();
+                    $model -> connect();
+
+                    $query = 'SELECT * FROM category';
+                    $catList =  $model ->select ($query);
+
+                }
                 if ($folder == 'admin') {$layout = 'admin.phtml';}
                 include_once ($path);
             }
