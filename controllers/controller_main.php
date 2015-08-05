@@ -6,13 +6,13 @@
  * Time: 23:42
  */
 
-class Controller_Index
+class Controller_Main
 extends Controller
 {
     //------------------------------------------------------------------------------------------------------------------
     public function action ()
     {
-        $model = new Model_Index();
+        $model = new Model_Main();
         $result = $model -> getIndex();
 
         //Генерить меню полностью в переменную и передавать во вью

@@ -50,7 +50,7 @@ class Application
             array_shift ($arg);
         }
 
-        $arg[0] = ($arg[0] == '') ? 'index' : $arg[0];
+        $arg[0] = ($arg[0] == '') ? 'main' : $arg[0];
 
         for ($i = 0; $i < count ($arg); $i++) {
             if (!preg_match ('/^[a-zA-Z0-9_]+$/', $arg[$i])) {
