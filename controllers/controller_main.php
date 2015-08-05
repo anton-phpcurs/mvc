@@ -13,14 +13,15 @@ extends Controller
     public function action ()
     {
         $model = new Model_Main();
-        $result = $model -> getIndex();
 
-        //Генерить меню полностью в переменную и передавать во вью
-        // Генерить полностью товары в переменную и передавать во вью
+        $query = 'SELECT * FROM category';
+        $valuesMain['catList'] =  $model ->select ($query);
+
+        $values =  $model -> getIndex();
 
         $view = new View();
-        $view -> setTemplate ('index');
-        $view -> setValue ($result);
-        $view -> render ();
+        $view -> addBufferMain('layout', $valuesMain);
+        $view -> addBuffers('index', $values);
+        $view -> renderBuffer();
     }
 }

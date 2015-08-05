@@ -12,48 +12,78 @@ extends Controller
     //------------------------------------------------------------------------------------------------------------------
     public function actionAuth ()
     {
+        $model = new Model_Lot();
+        $query = 'SELECT * FROM category';
+        $valuesMain['catList'] =  $model ->select ($query);
+
         $view = new View();
-        $view -> setTemplate ('auth');
-        $view -> render ();
+        $view -> addBufferMain('admin', $valuesMain);
+        $view -> addBuffers('auth');
+        $view -> renderBuffer();
     }
 
     //------------------------------------------------------------------------------------------------------------------
     public function actionBanList ()
     {
+        $model = new Model_Lot();
+        $query = 'SELECT * FROM category';
+        $valuesMain['catList'] =  $model ->select ($query);
+
         $view = new View();
-        $view -> setTemplate ('banlist');
-        $view -> render ();
+        $view -> addBufferMain('admin', $valuesMain);
+        $view -> addBuffers('banlist');
+        $view -> renderBuffer();
     }
 
     //------------------------------------------------------------------------------------------------------------------
     public function actionConfig ()
     {
+        $model = new Model_Lot();
+        $query = 'SELECT * FROM category';
+        $valuesMain['catList'] =  $model ->select ($query);
+
         $view = new View();
-        $view -> setTemplate ('config');
-        $view -> render ();
+        $view -> addBufferMain('admin', $valuesMain);
+        $view -> addBuffers('config');
+        $view -> renderBuffer();
     }
 
     //------------------------------------------------------------------------------------------------------------------
     public function actionLots ()
     {
+        $model = new Model_Lot();
+        $query = 'SELECT * FROM category';
+        $valuesMain['catList'] =  $model ->select ($query);
+
         $view = new View();
-        $view -> setTemplate ('lots');
-        $view -> render ();
+        $view -> addBufferMain('admin', $valuesMain);
+        $view -> addBuffers('lots');
+        $view -> renderBuffer();
     }
 
     //------------------------------------------------------------------------------------------------------------------
     public function actionMail ()
     {
+        $model = new Model_Lot();
+        $query = 'SELECT * FROM category';
+        $valuesMain['catList'] =  $model ->select ($query);
+
         $view = new View();
-        $view -> setTemplate ('mail');
-        $view -> render ();
+        $view -> addBufferMain('admin', $valuesMain);
+        $view -> addBuffers('mail');
+        $view -> renderBuffer();
     }
 
     //------------------------------------------------------------------------------------------------------------------
     public function actionUser ()
     {
+        $model = new Model_Lot();
+        $query = 'SELECT * FROM category';
+        $valuesMain['catList'] =  $model ->select ($query);
+
         $view = new View();
-        $view -> setTemplate ('user');
-        $view -> render ();
+        $view -> addBufferMain('admin', $valuesMain);
+        $view -> addBuffers('user');
+        $view -> renderBuffer();
     }
 }

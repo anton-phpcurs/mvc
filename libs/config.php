@@ -10,8 +10,8 @@ class Config
 {
     const URL_ARG_OFFSET = 0; // NO DELETE !!!
 
-//    const ROOT_URL      = 'http://test'; /* NIX */
-    const ROOT_URL      = 'http://localhost'; /* HOME */
+    const ROOT_URL      = 'http://test'; /* NIX */
+//    const ROOT_URL      = 'http://localhost'; /* HOME */
 
     const ROOT_EMAIL    = 'admin@admin.ua';
     const DEFAULT_CONTROLLER = 'page';

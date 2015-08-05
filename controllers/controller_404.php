@@ -12,8 +12,15 @@ extends Controller
     //------------------------------------------------------------------------------------------------------------------
     public function action ()
     {
+        $model = new Model ();
+        $model -> connect();
+
+        $query = 'SELECT * FROM category';
+        $values['catList'] =  $model ->select ($query);
+
         $view = new View();
-        $view -> setTemplate ('404');
-        $view -> render ();
+        $view -> addBufferMain('layout', $values);
+        $view -> addBuffers('404');
+        $view -> renderBuffer();
     }
 }

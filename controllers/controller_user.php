@@ -43,9 +43,15 @@ extends Controller
 //Log::sendToScreen(__FILE__, __LINE__, 'Получить данные из modelUsers (session_user_id) и ВСЕ данные modelLots на страницу №:'. $page);
         }
 //Log::sendToScreen(__FILE__, __LINE__, 'View -> render');
+
+        $model = new Model_Lot();
+        $query = 'SELECT * FROM category';
+        $valuesMain['catList'] =  $model ->select ($query);
+
         $view = new View();
-        $view -> setTemplate ('mylots');
-        $view -> render ();
+        $view -> addBufferMain('layout', $valuesMain);
+        $view -> addBuffers('mylots');
+        $view -> renderBuffer();
     }
 
 
@@ -62,9 +68,14 @@ extends Controller
         }
 //Log::sendToScreen(__FILE__, __LINE__, 'View -> render');
 
+        $model = new Model_Lot();
+        $query = 'SELECT * FROM category';
+        $valuesMain['catList'] =  $model ->select ($query);
+
         $view = new View();
-        $view -> setTemplate ('mybids');
-        $view -> render ();
+        $view -> addBufferMain('layout', $valuesMain);
+        $view -> addBuffers('mybids');
+        $view -> renderBuffer();
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -72,9 +83,14 @@ extends Controller
     {
 //Log::sendToScreen(__FILE__, __LINE__, 'Получить настройки из modelUsers (session_user_id)');
 //Log::sendToScreen(__FILE__, __LINE__, 'View -> render');
+        $model = new Model_Lot();
+        $query = 'SELECT * FROM category';
+        $valuesMain['catList'] =  $model ->select ($query);
+
         $view = new View();
-        $view -> setTemplate ('settings');
-        $view -> render ();
+        $view -> addBufferMain('layout', $valuesMain);
+        $view -> addBuffers('settings');
+        $view -> renderBuffer();
     }
 
 
