@@ -28,7 +28,12 @@ class Model
     public function select ($sql) {
         $result = [];
 
-        $rows = $this -> pdo-> query ($sql);
+        try {
+            $rows = $this -> pdo-> query ($sql);
+        } catch (PDOException $e) {
+            Log::sendToScreen(__FILE__, __LINE__, 'Выборка не прошла: ' . $e->getMessage(), true);
+        }
+
         foreach ($rows as $row) {
             $result[] = $row;
         }
@@ -39,11 +44,30 @@ class Model
     public function selectOne ($sql) {
 
         $result = $this -> select($sql);
-        //var_dump($result[0]); die;
         if (!empty ($result)) {
             return $result[0];
         } else {
             return $result;
+        }
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
+    public function insert ($sql)
+    {
+        try {
+            $this -> pdo-> query ($sql);
+        } catch (PDOException $e) {
+            Log::sendToScreen(__FILE__, __LINE__, 'Втавка не прошла: ' . $e->getMessage(), true);
+        }
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
+    public function update ($sql)
+    {
+        try {
+            $this -> pdo-> query ($sql);
+        } catch (PDOException $e) {
+            Log::sendToScreen(__FILE__, __LINE__, 'Обновление не прошло: ' . $e->getMessage(), true);
         }
     }
 }

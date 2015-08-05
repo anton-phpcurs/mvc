@@ -11,57 +11,6 @@ class View
     private $bufferMain = [];
     private $buffers = [];
 
-    private $template;
-    private $value;
-
-    //------------------------------------------------------------------------------------------------------------------
-    public function setTemplate ($value)
-    {
-        $this -> template = $value;
-    }
-
-    //------------------------------------------------------------------------------------------------------------------
-    public function setValue ($value)
-    {
-        $this -> value = $value;
-    }
-
-    //------------------------------------------------------------------------------------------------------------------
-    public function render ()
-    {
-        // TEMPLATE HACK
-        ob_start();
-        $folders = array ('page', 'goods', 'user', 'admin');
-        $layout ='';
-
-        if (count ($this -> value) > 0) extract ($this -> value);
-        $url = Config::ROOT_URL;
-
-        foreach ($folders as $folder) {
-            $path = sprintf('%s/../view/%s/%s.phtml', __DIR__, $folder, $this -> template);
-
-            if (file_exists($path)) {
-                if (($folder == 'page') || ($folder == 'goods') || ($folder == 'user')) {
-                    $layout = 'layout.phtml';
-
-                    $model = new Model ();
-                    $model -> connect();
-
-                    $query = 'SELECT * FROM category';
-                    $catList =  $model ->select ($query);
-
-                }
-                if ($folder == 'admin') {$layout = 'admin.phtml';}
-                include_once ($path);
-            }
-        }
-        $content = ob_get_clean();
-        //var_dump($lastGoods); die;
-        ob_start();
-        include (__DIR__ .'/../view/layout/'. $layout);
-        echo ob_get_clean();
-    }
-
     //------------------------------------------------------------------------------------------------------------------
     public function addBufferMain ($template, $values = [])
     {
@@ -101,13 +50,11 @@ class View
                 if (count ($values) > 0) extract ($values);
                 include_once ($path);
             } else {
-                Log::sendToScreen(__FILE__, __LINE__, 'Template don`t founf.', true);
+                Log::sendToScreen(__FILE__, __LINE__, 'Template don`t found.', true);
             }
         }
 
         $content = ob_get_clean();
-
-        //var_dump($lastGoods); die;
 
         $tamplate = $this -> bufferMain['template'];
         $values   = $this -> bufferMain['values'];
@@ -122,34 +69,3 @@ class View
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
