@@ -3,22 +3,68 @@ body {
     padding: 0;
 }
 
+/* Header -----------------------------------------*/
 header {
     height: 50px;
-    background: #cccccc;
+    background: #f8f8f8;
+    border-bottom: 1px solid #c7c7c7;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+.header-logo {
+    padding: 15px;
+    padding-left: 0;
+    font-size: 18px;
+    text-decoration: none;
+    color: #337ab7;
+    display: inline-block;
+}
+.header-form {
+    padding: 0;
+    width: 630px;
+    display: inline-block;
+    text-align: center;
+}
+
+.header-form input {
+    border: 1px solid #c7c7c7;
+    border-radius: 3px;
+    padding: 5px;
+    width: 400px;
+    font-size: 14px;
+    position: relative;
+    top: -2px;
+}
+
+.header-link {
+    margin-top: 10px;
+    padding: 5px 15px;
+    float: right;
+    display: inline-block;
+    color: #777;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+a:hover.header-link {
+    color: #000;
+}
+/* Content -----------------------------------------*/
 main {
     height: 500px;
 }
 
 footer {
-    height: 50px;
-    background: #cccccc;
+    height: 80px;
+    background: #e8e8e8;
+    border-top: 1px solid #c7c7c7;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .wrapper {
     margin: 0 auto;
-    border: 1px solid black;
-    width: 1080px;
+    border: 0px solid black;
+    width: 800px;
 }
+

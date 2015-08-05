@@ -7,8 +7,9 @@
  */
 
 class Controller_Admin
-    extends Controller
+extends Controller
 {
+    //------------------------------------------------------------------------------------------------------------------
     public function actionAuth ()
     {
         $view = new View();
@@ -16,6 +17,7 @@ class Controller_Admin
         $view -> render ();
     }
 
+    //------------------------------------------------------------------------------------------------------------------
     public function actionBanList ()
     {
         $view = new View();
@@ -23,6 +25,7 @@ class Controller_Admin
         $view -> render ();
     }
 
+    //------------------------------------------------------------------------------------------------------------------
     public function actionConfig ()
     {
         $view = new View();
@@ -30,6 +33,7 @@ class Controller_Admin
         $view -> render ();
     }
 
+    //------------------------------------------------------------------------------------------------------------------
     public function actionLots ()
     {
         $view = new View();
@@ -37,6 +41,7 @@ class Controller_Admin
         $view -> render ();
     }
 
+    //------------------------------------------------------------------------------------------------------------------
     public function actionMail ()
     {
         $view = new View();
@@ -44,6 +49,7 @@ class Controller_Admin
         $view -> render ();
     }
 
+    //------------------------------------------------------------------------------------------------------------------
     public function actionUser ()
     {
         $view = new View();

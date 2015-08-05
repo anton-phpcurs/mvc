@@ -14,6 +14,8 @@ class Log
 
     const MSG_SCREEN  = '<div style="background: #fC7; margin: 10px 0; padding: 5px; border: 1px solid #d70; border-radius: 5px;">
                          <span style="font-weight: bold">%s [%s]: </span>%s</div>';
+
+    //------------------------------------------------------------------------------------------------------------------
     /**
      * @param $file
      * @param $line
@@ -32,6 +34,7 @@ class Log
         if ($stop) die (self::MSG_OFFLINE. ' (-log).');
     }
 
+    //------------------------------------------------------------------------------------------------------------------
     /**
      * @param $file
      * @param $line

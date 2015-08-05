@@ -7,9 +7,10 @@
  */
 
 class Controller_ContactUs
-    extends Controller
+extends Controller
 {
-    public function execute ()
+    //------------------------------------------------------------------------------------------------------------------
+    public function action ()
     {
         $view = new View();
         $view -> setTemplate ('contactus');

@@ -7,9 +7,10 @@
  */
 
 class Controller_Index
-    extends Controller
+extends Controller
 {
-    public function actionIndex ()
+    //------------------------------------------------------------------------------------------------------------------
+    public function action ()
     {
         $model = new Model_Index();
         $result = $model -> getIndex();
@@ -22,5 +23,4 @@ class Controller_Index
         $view -> setValue ($result);
         $view -> render ();
     }
-
 }

@@ -7,8 +7,9 @@
  */
 
 class Controller_Lots
-    extends Controller
+extends Controller
 {
+    //------------------------------------------------------------------------------------------------------------------
     public function actionCreate ()
     {
         $view = new View();
@@ -16,6 +17,7 @@ class Controller_Lots
         $view -> render ();
     }
 
+    //------------------------------------------------------------------------------------------------------------------
     public function actionAll ()
     {
         $page = 1;
@@ -26,7 +28,7 @@ class Controller_Lots
         $model = new Model_Lot();
         $result = $model -> getAllOnPage ($page);
 
-        if (!$result) Application::redirect_in('/lot');
+        if (!$result) Application::redirect_in('/lots');
 
         $view = new View();
         $view -> setTemplate ('search');
@@ -34,6 +36,7 @@ class Controller_Lots
         $view -> render ();
     }
 
+    //------------------------------------------------------------------------------------------------------------------
     public function actionInfo ()
     {
         if (empty($this -> valueURL)) Application::redirect_in('/404');
@@ -50,6 +53,7 @@ class Controller_Lots
         $view -> render ();
     }
 
+    //------------------------------------------------------------------------------------------------------------------
     public function actionNotFound ()
     {
         $view = new View();
@@ -57,6 +61,7 @@ class Controller_Lots
         $view -> render ();
     }
 
+    //------------------------------------------------------------------------------------------------------------------
     public function actionSearch ()
     {
         $view = new View();
@@ -64,6 +69,7 @@ class Controller_Lots
         $view -> render ();
     }
 
+    //------------------------------------------------------------------------------------------------------------------
     public function actionCategory ()
     {
         $view = new View();

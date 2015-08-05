@@ -12,6 +12,7 @@ class Application
     private $valueURL;
     private $valuePOST;
 
+    //------------------------------------------------------------------------------------------------------------------
     public function __construct ()
     {
         session_start();
@@ -22,9 +23,11 @@ class Application
         }
     }
 
+    //------------------------------------------------------------------------------------------------------------------
     public function run ()
     {
         $this -> parsRequest();
+
         $controllerName = 'Controller_'. ucfirst ($this -> controllerName);
 
         if (class_exists ($controllerName)) {
@@ -37,6 +40,7 @@ class Application
         }
     }
 
+    //------------------------------------------------------------------------------------------------------------------
     private function parsRequest ()
     {
         $url = trim ($_SERVER ['REQUEST_URI'], '/');
@@ -46,31 +50,28 @@ class Application
             array_shift ($arg);
         }
 
-        if($arg[0] == '') {
-            $arg[0] = 'index';
-            $arg[1] = 'index';
-        }
-
+        $arg[0] = ($arg[0] == '') ? 'index' : $arg[0];
 
         for ($i = 0; $i < count ($arg); $i++) {
             if (!preg_match ('/^[a-zA-Z0-9_]+$/', $arg[$i])) {
                 $arg[0] = '404';
-                breack;
+                break;
             }
         }
-
 
         $this -> controllerName = array_shift ($arg);
         $this -> valueURL = $arg;
         $this -> valuePOST = $_POST;
     }
 
+    //------------------------------------------------------------------------------------------------------------------
     public static function redirect_in ($location)
     {
         header('Location: '. Config::ROOT_URL. $location);
         die;
     }
 
+    //------------------------------------------------------------------------------------------------------------------
     public static function redirect_out ($location)
     {
         header('Location: '. $location);

@@ -9,6 +9,7 @@
 $application = new Application ();
 $application -> run ();
 
+//------------------------------------------------------------------------------------------------------------------
 function __autoload ($className) {
     $folders = array ('libs', 'controllers', 'models', 'views');
 

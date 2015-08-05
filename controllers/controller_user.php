@@ -20,12 +20,7 @@
 class Controller_User
 extends Controller
 {
-/*
-    public function execute ()
-    {
-        // не нужен
-    }
-*/
+    //------------------------------------------------------------------------------------------------------------------
     public function actionInfo ()
     {
         if (count ($this -> valueURL) > 0) {
@@ -36,6 +31,7 @@ extends Controller
         }
     }
 
+    //------------------------------------------------------------------------------------------------------------------
     public function actionMyLots ()
     {
         $page   = (count ($this -> valueURL) > 0) ? $this -> valueURL[0] : 1;
@@ -53,6 +49,7 @@ extends Controller
     }
 
 
+    //------------------------------------------------------------------------------------------------------------------
     public function actionMyBids ()
     {
         $page   = (count ($this -> valueURL) > 0) ? $this -> valueURL[0] : 1;
@@ -70,6 +67,7 @@ extends Controller
         $view -> render ();
     }
 
+    //------------------------------------------------------------------------------------------------------------------
     public function actionSettings ()
     {
 //Log::sendToScreen(__FILE__, __LINE__, 'Получить настройки из modelUsers (session_user_id)');
@@ -80,6 +78,7 @@ extends Controller
     }
 
 
+    //------------------------------------------------------------------------------------------------------------------
     public function actionSave ()
     {
         Log::sendToScreen(__FILE__, __LINE__, 'Получить данные из POST');
@@ -87,6 +86,7 @@ extends Controller
         Log::sendToScreen(__FILE__, __LINE__, 'Редирект user/settings');
     }
 
+    //------------------------------------------------------------------------------------------------------------------
     public function actionMyLotSearch ()
     {
         Log::sendToScreen(__FILE__, __LINE__, 'Получить данные из POST');
@@ -95,6 +95,7 @@ extends Controller
         Log::sendToScreen(__FILE__, __LINE__, 'Редирект user/mylots');
     }
 
+    //------------------------------------------------------------------------------------------------------------------
     public function actionMyBidSearch ()
     {
         Log::sendToScreen(__FILE__, __LINE__, 'Получить данные из POST');
@@ -103,6 +104,7 @@ extends Controller
         Log::sendToScreen(__FILE__, __LINE__, 'Редирект user/mybids/1');
     }
 
+    //------------------------------------------------------------------------------------------------------------------
     public function actionMyLotDelete ()
     {
         if (count ($this -> valueURL) > 0) {

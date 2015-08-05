@@ -8,11 +8,10 @@
 
 class Config
 {
-//    const URL_ARG_OFFSET = 1;
-    const URL_ARG_OFFSET = 0;
+    const URL_ARG_OFFSET = 0; // NO DELETE !!!
 
-    const ROOT_URL      = 'http://test'; /* NIX */
-//    const ROOT_URL      = 'http://localhost'; /* HOME */
+//    const ROOT_URL      = 'http://test'; /* NIX */
+    const ROOT_URL      = 'http://localhost'; /* HOME */
 
     const ROOT_EMAIL    = 'admin@admin.ua';
     const DEFAULT_CONTROLLER = 'page';
@@ -23,7 +22,7 @@ class Config
     const DB_USER = 'root';
     const DB_PASSWORD = '';
     const DB_CHARSET = 'utf-8';
-    const DB_DRIVER   = 'mysql';
+    const DB_DRIVER   = 'mysql'; // NO DELETE !!!
 
     const TIMEZONE  = 'Europe/Kiev';
     const VERSION   = '0.0';

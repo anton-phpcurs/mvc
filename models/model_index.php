@@ -9,11 +9,13 @@
 class Model_Index
 extends Model
 {
+    //------------------------------------------------------------------------------------------------------------------
     public function __construct ()
     {
         $this -> connect();
     }
 
+    //------------------------------------------------------------------------------------------------------------------
     public function getIndex ()
     {
         $model = new Model ();
@@ -30,7 +32,6 @@ extends Model
                 LIMIT 6';
 
         $result['lastGoods'] =  $model ->select ($query);
-
         return $result;
     }
 }

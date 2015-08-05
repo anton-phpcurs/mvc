@@ -7,9 +7,10 @@
  */
 
 class Controller_404
-    extends Controller
+extends Controller
 {
-    public function execute ()
+    //------------------------------------------------------------------------------------------------------------------
+    public function action ()
     {
         $view = new View();
         $view -> setTemplate ('404');

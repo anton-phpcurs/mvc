@@ -7,9 +7,10 @@
  */
 
 class Controller_SignIn
-    extends Controller
+extends Controller
 {
-    public function execute ()
+    //------------------------------------------------------------------------------------------------------------------
+    public function action ()
     {
         $view = new View();
         $view -> setTemplate ('signIn');
