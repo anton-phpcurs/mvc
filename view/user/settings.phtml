@@ -1,66 +1,70 @@
-<div class="container-fluid profile">
-    <div class="row-fluid">
-        <div class="col-lg-2">
-            <!--Sidebar content-->
-            <img class="img-rounded" src="/img/no_avatar.jpg" alt="avatar">
+<!-- created by Kit-Kat1 and Anton Ambrosimov -->
+<!-- modified by Sebastian
+add bootstrap-design classes to input fields
+add names and id`s, inputs group by forms
+table style of page deleted -->
+<?php //if (!$settings) App::redirect('/user/notfound'); ?>
 
-
-
-            <ul class="nav nav-pills nav-stacked">
-                <li><a href="/user/mylots">Лоты<span class="badge pull-right">10</span></a></li>
-                <li><a href="/user/mybids">Аукционы<span class="badge pull-right">7</span></a></li>
-                <li class="active"><a href="/user/settings">Настройки</a></li>
-            </ul>
+<div class="container profile top">
+    <div class="jumbotron profile">
+        <img class="img-rounded avatar" src="/img/no_avatar.jpg" alt="avatar">
+        <div class="description-block">
+            <div class="last-name"><?=$user;?></div>
+            <div class="telephon">Телефон: +3 (090) 567-32-44</div>
+            <div class="telephon">Ставки: </div>
+            <div class="telephon">Лоты: </div>
         </div>
-        <div class="col-lg-9">
-        <div class="prof_settings">
-            <h3>Изменить пароль</h3>
-            <form action="" method="post" >
-                <table>
-                    <tr>
-                        <td><input type="text" placeholder="Старый пароль" required name = "old_pwd"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" placeholder="Новый пароль" required name = "pwd"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="password" placeholder="Повторите пароль" required  name = "pwd-rep"></td>
-                    </tr>
-                </table>
-                <button type="submit">Изменить пароль</button>
-            </form>
+        <hr>
+        <div style="text-align: center">
+            <a href="/user/create" class="btn btn-info">Добавить лот</a> | <a href="/user/mylots" class="btn btn-info">Мои лоты</a> | <a  href="/user/mybids" class="btn btn-info">Мои ставки</a> | <a href="/user/settings" class="btn btn-info">Настройки</a>
         </div>
+    </div>
+</div>
+        <!-- Sidebar content (menu) -->
+        <!-- Main content -->
 
+<div class="container profile">
+    <div class="jumbotron profile">
+                <!--Password settings-->
+                <div class="prof_settings">
+                    <h3>Изменить пароль</h3>
+                    <form action="" method="post" id="changePasswordSettings">
+                        <input class="form-control form-group" type="password" placeholder="Старый пароль" required name="userOldPassword">
+                        <input class="form-control form-group" type="password" placeholder="Новый пароль" required name="userNewPassword">
+                        <input class="form-control form-group" type="password" placeholder="Повторите пароль" required  name="userNewPasswordAgain">
+                        <input type="hidden" name="action" value="password">
+                        <div class="form-group">
+                            <input class="btn btn-info" type="submit" value="Изменить пароль">    
+                        </div>
+                    </form>
+                </div>
+
+                <!--Email settings-->
                 <div class="prof_settings">
                     <h3>Изменить email</h3>
-                    <form action="" method="post" >
-                        <table>
-                            <tr>
-                                <td><input type="text" value="somemail@mail.ru"  type = "email" name = "email"></td>
-                            </tr>
-                        </table>
-                        <button type="submit">Изменить email</button>
+                    <form action="" method="post" id="changeEmailSettings">
+                        <input class="form-control form-group" type="email" placeholder="Старый Email" name="userOldEmail">
+                        <input class="form-control form-group" type="email" placeholder="Новый Email" name="userNewEmail">
+                        <input type="hidden" name="action" value="email" >
+                        <div class="form-group">
+                            <input class="btn btn-info" type="submit" value="Изменить email">
+                        </div>
                     </form>
                 </div>
 
+                <!--SelfData Settings-->
                 <div class="prof_settings">
                     <h3>Личные данные</h3>
-                    <form action="" method="post" >
-                        <table>
-                            <tr>
-                                <td><input type="text" placeholder="Фамилия"  name = "second_name"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="text" placeholder="Имя"  name = "first_name"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="tel" placeholder="Телефон"   name = "tel"></td>
-                            </tr>
-                        </table>
-                        <button type="submit">Изменить данные</button>
+                    <form action="" method="post" id="changeSelfSettings">
+                        <input class="form-control form-group" type="text" placeholder="Фамилия"  name="userNewSurname">
+                        <input class="form-control form-group" type="text" placeholder="Имя"  name="userNewName">
+                        <input name="userNewTel" id="userNewTel" required type="tel" class="form-control form-group" placeholder="Телефон в формате +380 (ХХ) ХХ ХХ ХХХ">
+                        <input type="hidden" name="action" value="profile" >
+                        <div class="form-group">
+                            <input class="btn btn-info" type="submit" value="Изменить данные">
+                        </div>
                     </form>
                 </div>
 
-
+     </div>
 </div>
-        </div></div>

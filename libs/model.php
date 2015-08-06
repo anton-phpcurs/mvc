@@ -11,16 +11,14 @@ class Model
     private $pdo;
 
     //------------------------------------------------------------------------------------------------------------------
-    public function connect ()
+    public function __construct ()
     {
-        $db_cfg  = Config::DB_DRIVER .':';
-        $db_cfg .= 'host='. Config::DB_HOST .';';
-        $db_cfg .= 'dbname='. Config::DB_NAME;
+        $db_cfg  = Config::DB_DRIVER .':host='. Config::DB_HOSTNAME .';dbname='. Config::DB_BASENAME;
 
         try {
-            $this -> pdo = new PDO($db_cfg, Config::DB_USER, Config::DB_PASSWORD);
+            $this -> pdo = new PDO($db_cfg, Config::DB_USERNAME, Config::DB_PASSWORD);
         } catch (PDOException $e) {
-            Log::sendToScreen(__FILE__, __LINE__, 'Подключение не удалось: ' . $e->getMessage(), true);
+            Log::sendToScreen(__FILE__, __LINE__, 'Connection. ' . $e->getMessage(), true);
         }
     }
 
@@ -31,7 +29,7 @@ class Model
         try {
             $rows = $this -> pdo-> query ($sql);
         } catch (PDOException $e) {
-            Log::sendToScreen(__FILE__, __LINE__, 'Выборка не прошла: ' . $e->getMessage(), true);
+            Log::sendToScreen(__FILE__, __LINE__, 'Query '.$sql .'<br>'. $e->getMessage(), true);
         }
 
         foreach ($rows as $row) {
@@ -42,8 +40,8 @@ class Model
 
     //------------------------------------------------------------------------------------------------------------------
     public function selectOne ($sql) {
-
         $result = $this -> select($sql);
+
         if (!empty ($result)) {
             return $result[0];
         } else {
@@ -57,7 +55,7 @@ class Model
         try {
             $this -> pdo-> query ($sql);
         } catch (PDOException $e) {
-            Log::sendToScreen(__FILE__, __LINE__, 'Втавка не прошла: ' . $e->getMessage(), true);
+            Log::sendToScreen(__FILE__, __LINE__, 'Query '.$sql .'<br>'. $e->getMessage(), true);
         }
     }
 
@@ -67,7 +65,17 @@ class Model
         try {
             $this -> pdo-> query ($sql);
         } catch (PDOException $e) {
-            Log::sendToScreen(__FILE__, __LINE__, 'Обновление не прошло: ' . $e->getMessage(), true);
+            Log::sendToScreen(__FILE__, __LINE__, 'Query '.$sql .'<br>'. $e->getMessage(), true);
+        }
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
+    public function delete ($sql)
+    {
+        try {
+            $this -> pdo-> query ($sql);
+        } catch (PDOException $e) {
+            Log::sendToScreen(__FILE__, __LINE__, 'Query '.$sql .'<br>'. $e->getMessage(), true);
         }
     }
 }

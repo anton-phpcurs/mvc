@@ -16,12 +16,6 @@ class Log
                          <span style="font-weight: bold">%s [%s]: </span>%s</div>';
 
     //------------------------------------------------------------------------------------------------------------------
-    /**
-     * @param $file
-     * @param $line
-     * @param $message
-     * @param bool|true $stop
-     */
     public static function sendToFile ($file, $line, $message, $stop = true)
     {
         $fName = sprintf (self::LFN_FORMAT, dirname (__DIR__), date('Y-m-d'));
@@ -35,12 +29,6 @@ class Log
     }
 
     //------------------------------------------------------------------------------------------------------------------
-    /**
-     * @param $file
-     * @param $line
-     * @param $message
-     * @param bool|true $stop
-     */
     public static function sendToScreen ($file, $line, $message, $stop = false)
     {
         echo sprintf (self::MSG_SCREEN, $file, $line, $message);

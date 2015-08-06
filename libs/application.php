@@ -27,7 +27,6 @@ class Application
     public function run ()
     {
         $this -> parsRequest();
-
         $controllerName = 'Controller_'. ucfirst ($this -> controllerName);
 
         if (class_exists ($controllerName)) {

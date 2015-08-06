@@ -23,12 +23,15 @@ extends Controller
     //------------------------------------------------------------------------------------------------------------------
     public function actionInfo ()
     {
-        if (count ($this -> valueURL) > 0) {
-            Log::sendToScreen(__FILE__, __LINE__, 'Получить данные из modelUsers, modelLots, modelBids по ID:' . $this->valueURL[0]);
-            Log::sendToScreen(__FILE__, __LINE__, 'View -> render');
-        } else {
-            $this -> linkError();
-        }
+        if (empty ($this -> valueURL)) {Application::redirect_in('/404');}
+
+        $model = new Model_Category ();
+        $valuesMain['catList'] = $model -> getCategoryAll();
+
+        $view = new View();
+        $view -> addBufferMain('layout', $valuesMain);
+        $view -> addBuffers('info');
+        $view -> renderBuffer();
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -44,9 +47,8 @@ extends Controller
         }
 //Log::sendToScreen(__FILE__, __LINE__, 'View -> render');
 
-        $model = new Model_Lot();
-        $query = 'SELECT * FROM category';
-        $valuesMain['catList'] =  $model ->select ($query);
+        $model = new Model_Category ();
+        $valuesMain['catList'] = $model -> getCategoryAll();
 
         $view = new View();
         $view -> addBufferMain('layout', $valuesMain);
@@ -68,9 +70,8 @@ extends Controller
         }
 //Log::sendToScreen(__FILE__, __LINE__, 'View -> render');
 
-        $model = new Model_Lot();
-        $query = 'SELECT * FROM category';
-        $valuesMain['catList'] =  $model ->select ($query);
+        $model = new Model_Category ();
+        $valuesMain['catList'] = $model -> getCategoryAll();
 
         $view = new View();
         $view -> addBufferMain('layout', $valuesMain);
@@ -83,9 +84,8 @@ extends Controller
     {
 //Log::sendToScreen(__FILE__, __LINE__, 'Получить настройки из modelUsers (session_user_id)');
 //Log::sendToScreen(__FILE__, __LINE__, 'View -> render');
-        $model = new Model_Lot();
-        $query = 'SELECT * FROM category';
-        $valuesMain['catList'] =  $model ->select ($query);
+        $model = new Model_Category ();
+        $valuesMain['catList'] = $model -> getCategoryAll();
 
         $view = new View();
         $view -> addBufferMain('layout', $valuesMain);

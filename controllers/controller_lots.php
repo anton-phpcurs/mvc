@@ -12,18 +12,25 @@ extends Controller
     //------------------------------------------------------------------------------------------------------------------
     public function action ()
     {
+        $this ->actionPage();
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
+    public function actionPage ()
+    {
         $page = 1;
         if (!empty($this -> valueURL)) {
             $page = ($this -> valueURL[0] < 1) ? 1 : $this -> valueURL[0];
         }
 
+        $model = new Model_Category ();
+        $valuesMain['catList'] = $model -> getCategoryAll();
+
         $model = new Model_Lot();
-
-        $query = 'SELECT * FROM category';
-        $valuesMain['catList'] =  $model ->select ($query);
-
-        $values =  $model -> getAllOnPage ($page);
-        //if (!$values) Application::redirect_in('/lots');
+        $values['products'] =  $model -> getAllOnPage ($page);
+        $values['category'] = 'Общая';
+        $values['pages'] = (int) ceil ($model -> getCountAll () / 6);
+        $values['link'] = '/lots/page/';
 
         $view = new View();
         $view -> addBufferMain('layout', $valuesMain);
@@ -37,10 +44,10 @@ extends Controller
         if (empty($this -> valueURL)) Application::redirect_in('/404');
         $id = $this -> valueURL[0];
 
-        $model = new Model_Lot();
-        $query = 'SELECT * FROM category';
-        $valuesMain['catList'] =  $model ->select ($query);
+        $model = new Model_Category ();
+        $valuesMain['catList'] = $model -> getCategoryAll();
 
+        $model = new Model_Lot();
         $values = $model -> getInfo ($id);
 
         if (empty ($values['description'])) Application::redirect_in('/lots/notfound');
@@ -54,9 +61,8 @@ extends Controller
     //------------------------------------------------------------------------------------------------------------------
     public function actionCreate ()
     {
-        $model = new Model_Lot();
-        $query = 'SELECT * FROM category';
-        $valuesMain['catList'] =  $model ->select ($query);
+        $model = new Model_Category ();
+        $valuesMain['catList'] = $model -> getCategoryAll();
 
         $view = new View();
         $view -> addBufferMain('layout', $valuesMain);
@@ -67,9 +73,8 @@ extends Controller
     //------------------------------------------------------------------------------------------------------------------
     public function actionNotFound ()
     {
-        $model = new Model_Lot();
-        $query = 'SELECT * FROM category';
-        $valuesMain['catList'] =  $model ->select ($query);
+        $model = new Model_Category ();
+        $valuesMain['catList'] = $model -> getCategoryAll();
 
         $view = new View();
         $view -> addBufferMain('layout', $valuesMain);
@@ -80,9 +85,8 @@ extends Controller
     //------------------------------------------------------------------------------------------------------------------
     public function actionSearch ()
     {
-        $model = new Model_Lot();
-        $query = 'SELECT * FROM category';
-        $valuesMain['catList'] =  $model ->select ($query);
+        $model = new Model_Category ();
+        $valuesMain['catList'] = $model -> getCategoryAll();
 
         $view = new View();
         $view -> addBufferMain('layout', $valuesMain);
@@ -93,13 +97,31 @@ extends Controller
     //------------------------------------------------------------------------------------------------------------------
     public function actionCategory ()
     {
+        if (empty($this -> valueURL)) {
+            Application::redirect_in('/404');
+        }
+
+        $category= ($this -> valueURL[0] < 1) ? 1 : $this -> valueURL[0];
+        $page = 1;
+
+        if (count ($this -> valueURL) > 2) {
+            if ($this -> valueURL[1] == 'page') {
+                $page = ($this -> valueURL[2] < 1) ? 1 : $this -> valueURL[2];
+            }
+        }
+
+        $model = new Model_Category ();
+        $valuesMain['catList'] = $model -> getCategoryAll();
+
         $model = new Model_Lot();
-        $query = 'SELECT * FROM category';
-        $valuesMain['catList'] =  $model ->select ($query);
+        $values['products'] = $model -> getByCategoryID ($category, $page);
+        $values['category'] = $valuesMain['catList'][$category-1]['name'];
+        $values['pages'] = (int) ceil (count ($values['products']) / 6);
+        $values['link'] = '/lots/category/'. $valuesMain['catList'][$category-1]['id'] .'/page/';
 
         $view = new View();
         $view -> addBufferMain('layout', $valuesMain);
-        $view -> addBuffers('search');
+        $view -> addBuffers('search', $values);
         $view -> renderBuffer();
     }
 }

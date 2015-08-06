@@ -40,6 +40,5 @@ class Controller
     public function action ()
     {
         Log::sendToScreen(__FILE__, __LINE__, 'Empty action', true);
-        Application::redirect_in ('/404');
     }
 }

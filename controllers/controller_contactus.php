@@ -12,9 +12,8 @@ extends Controller
     //------------------------------------------------------------------------------------------------------------------
     public function action ()
     {
-        $model = new Model_Lot();
-        $query = 'SELECT * FROM category';
-        $valuesMain['catList'] =  $model ->select ($query);
+        $model = new Model_Category ();
+        $valuesMain['catList'] = $model -> getCategoryAll();
 
         $view = new View();
         $view -> addBufferMain('layout', $valuesMain);

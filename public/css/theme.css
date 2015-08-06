@@ -2,18 +2,92 @@
     margin:auto;
 }
 
-/* Настройки профиля  */
+/* Настройки профиля  ================================================================================================*/
+/* begin //create by Anton--------------------------------------------------------------------------------------------*/
 .profile {
-    margin-top: 50px;
+    padding: 20px;
+    width: 980px;
+    margin-bottom: 0;
+}
+
+.profile.top {
+    margin-top: 60px;
 }
 
 .avatar {
-    width-max: 250px;
-    /*heigth: 200px;*/
+    width: 150px;
+    height: 150px;
 }
-.prof_settings td{
-   padding-top: 10px;
-    padding-bottom: 10px;
+.label-fix {
+    padding-top: 5px;
+}
+
+.text-center {
+    text-align: center;
+    width: 500px;
+    margin: 0 auto;
+}
+
+
+.description-block {
+    display: inline-block;
+    padding-left: 20px;
+    vertical-align: top;
+}
+
+.last-name {
+    font-size: 40px;
+}
+
+.telephon {
+    font-size: 20px;
+}
+
+.comment-block {
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding:10px;
+    background: #fff;
+}
+
+.comment-avatar {
+    width: 100px;
+    height: 100px;
+}
+
+.comment-text-block {
+    padding-left: 10px;
+    width: 700px;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.comment-title {
+    font-weight: bold;
+}
+
+.lot-block {
+    margin: 10px 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding:10px;
+    width: 250px;
+    background: #fff;
+    display: inline-block;
+    vertical-align: top;
+
+}
+
+.lot-photo {
+    width: 200px;
+    height: 200px;
+}
+
+/* end  --------------------------------------------------------------------------------------------------------------*/
+.prof_settings{
+  margin-left: 95px;
+  margin-top: 100px
 }
 .prof_settings > form{
     padding: 40px;
@@ -35,7 +109,6 @@
     padding: 15px;
     width: 400px;
 }
-
 .crud p
 {
     margin: 15px;
@@ -54,15 +127,8 @@ h2.text-center
 .goods-description
 {
     margin-top: 100px !important;
+    padding: 10px;
 }
-
-.goods-description img
-{
-    height: 100%;
-    width: 100%;
-    margin: 15px 0;
-}
-
 .goods-description, .goods-similar
 {
     border: 1px solid lightgray;
@@ -86,7 +152,6 @@ h2.text-center
     color: #f00;
     font-size: 20px;
 }
-
 .goods-similar ul a
 {
     display: block;
@@ -119,6 +184,10 @@ h2.text-center
 .corners-rounded
 {
     border-radius: 5px;
+}
+.img-contacts{
+  width: 100px;
+  height: 100px;
 }
 /* created by Shamil ADMIN *****************************************************************************************/
 .admin_mail_span_data{
@@ -214,6 +283,7 @@ body {
 
  .panel > .panel-body > img, .panel > .panel-body > a > img{
   width: 180px;
+  height: 180px;
   margin: 10px; 
  }
  .panel{

@@ -43,64 +43,38 @@
 
 <div class="container theme-showcase" role="main">
     <!-- //////////////////////////////////////////////////////////////////////////////////////////-->
+
+
+    <div>
     <div class="page-header">
-        <h1 class="text-center">Все товары</h1>
+        <h1 class="text-center">Новые лоты</h1>
     </div>
-    <div class="row  well">
-        <?php foreach ($lastGoods as $product) :?>
-            <div class="col-sm-4">
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <h3 class="panel-title"><a href="<?=$url?>/lots/info/<?= $product['id']?>"><?= $product['title']?></a></h3>
-                    </div>
+
+    <div class="well">
+        <?php
+        if (count($lastGoods) > 0) {
+            foreach ($lastGoods as $product) { ?>
+                <div class="lot-block">
                     <div class="panel-body">
-                        <img class="img-rounded" src="/img/goods-desc.png">
+                        <img class="lot-photo" src="<?=$product["front_img"];?>.jpg">
+                        <h3 ><a href="/lots/info/<?=$product["id"];?>"><?=$product["title"];?></a></h3>
                         <p class="text-justify"><?= $product['description']?></p>
                         <ul class="list-unstyled">
                             <li><a href="mailto:<?= $product['email']?>"><span class="glyphicon glyphicon-envelope"></span> Связаться с продавцом</a></li>
-                            <li><a href="tel:<?= $product['phone']?>"><span class="glyphicon glyphicon-phone"></span> <?= $product['phone']?></a></li>
+                            <li><span class="glyphicon glyphicon-phone"></span> <?= $product['phone']?></li>
                             <li><p><span class="glyphicon glyphicon-usd"></span> Последняя ставка</p></li>
                         </ul>
-                        <div class="form-group has-feedback">
+
                             <span class="glyphicon glyphicon-tags form-control-feedback"></span>
                             <input type="button" class="form-control btn btn-success" value="Сделать ставку" data-toggle="modal" data-target="#makeBidModal">
-                        </div>
+
                     </div>
                 </div>
-            </div><!-- /.col-sm-4 -->
-        <?php endforeach; ?>
-        <!-- //////////////////////////////////////////////////////////////////////////////////////////-->
+            <?php } } ?>
+    </div>
+
 
     </div>
-    <!-- PAGINATION -->
-    <div class="pull-right">
-        <ul class="pagination">
-            <li class="previous disabled"><a href="#"><</a></li>
-        </ul>
-        <ul class="pagination">
-            <li class="active"><a href="#">1</a></li>
-            <li><a href="/page/index?page=2">2</a></li>
-            <li><a href="/page/index?page=3">3</a></li>
-            <li><a href="/page/index?page=4">4</a></li>
-            <li><a href="/page/index?page=5">5</a></li>
-        </ul>
-        <ul class="pagination">
-            <li class="next"><a href="#">></a></li>
-        </ul>
-    </div>
-    <!-- PRESENT TYPE -->
-    <!--<div class="btn-group pull-left" data-toggle="buttons">
-      <label class="btn btn-default">
-              <input type="radio" name="options" id="option1">
-              <span class="glyphicon glyphicon-th"></span>	Таблица
-            </label>
-      <label class="btn btn-default">
-              <input type="radio" name="options" id="option2">
-              <span class="glyphicon glyphicon-th-list"></span>	Список
-            </label>
-    </div>-->
-
-
 
     <!-- Modal СДЕЛАТЬ СТАВКУ-->
     <div class="modal fade" id="makeBidModal" tabindex="-1" role="dialog" aria-labelledby="makeBidModalLabel" aria-hidden="true">

@@ -1,0 +1,63 @@
+<!--create by Anton 2015-08-05 -->
+
+<div class="container profile top">
+    <div class="jumbotron profile">
+        <img class="img-rounded avatar" src="/img/no_avatar.jpg" alt="avatar">
+        <div class="description-block">
+            <div class="last-name"><?=$user;?></div>
+            <div class="telephon">Телефон: +3 (090) 567-32-44</div>
+            <div class="telephon">Ставки: 20</div>
+            <div class="telephon">Лоты: 20</div>
+
+        </div>
+        <hr>
+        <?php if(isset($_SESSION['user'])){ ?>
+        <div class="text-center">
+            <a class="btn btn-info">Добавить лот</a> | <a class="btn btn-info">Мои лоты</a> | <a class="btn btn-info">Мои ставки</a> | <a class="btn btn-info">Настройки</a>
+        </div>
+        <?php }?>
+    </div>
+</div>
+
+<div class="container profile">
+    <div class="jumbotron profile">
+
+        <div class="comment-block">
+            <img class="img-rounded comment-avatar" src="/img/no_avatar.jpg" alt="avatar">
+            <div class="comment-text-block">
+                <div class="comment-title">Имя Фамилия (23.06.2015)</div>
+                1 апреля сделал заказ. Обещали доставить в Харьков 2 апреля с 9:00 до 14:00. в 11:00 2 апреля перезвонили обещали на 3 апреля после 14:00.
+                После обеда снова позвонили сказали товар будет доставлен 4 апреля. Что будет дальше посмотрим. Пока поставлю 3 звезды, если 4 числа не доставят пересмотрю свою оценку.
+            </div>
+        </div>
+
+        <div class="comment-block">
+            <img class="img-rounded comment-avatar" src="/img/no_avatar.jpg" alt="avatar">
+            <div class="comment-text-block">
+                <div class="comment-title">Имя Фамилия (23.06.2015)</div>
+                1 апреля сделал заказ. Обещали доставить в Харьков 2 апреля с 9:00 до 14:00. в 11:00 2 апреля перезвонили обещали на 3 апреля после 14:00.
+                После обеда снова позвонили сказали товар будет доставлен 4 апреля. Что будет дальше посмотрим. Пока поставлю 3 звезды, если 4 числа не доставят пересмотрю свою оценку.
+            </div>
+        </div>
+
+
+
+        <!--++Блок paginator++-->
+        <div class="paginator">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <ul class="pagination">
+                        <li><a href="#">&laquo;</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">&raquo;</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--++Блок paginator++-->
+    </div>
+</div>

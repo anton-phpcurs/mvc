@@ -10,16 +10,9 @@ class Model_Lot
 extends Model
 {
     //------------------------------------------------------------------------------------------------------------------
-    public function __construct ()
-    {
-        $this -> connect();
-    }
-
-    //------------------------------------------------------------------------------------------------------------------
     public function getCountAll ()
     {
         $model = new Model ();
-        $model -> connect();
 
         $query = 'SELECT id FROM lot';
         return  count ($model ->select ($query));
@@ -29,7 +22,6 @@ extends Model
     public function getInfo ($id)
     {
         $model = new Model ();
-        $model -> connect();
 
         $query = 'SELECT l.id,l.title,l.start_price,l.description,l.category_id,c.name,u.id user_id,u.first_name,u.last_name
                 FROM lot l
@@ -51,10 +43,8 @@ extends Model
     public function getAllOnPage ($page)
     {
         $model = new Model ();
-        $model -> connect();
 
-        $query = 'SELECT l.`created`,l.id,l.title,l.description,c.name,u.first_name,u.last_name,u.email,u.phone
-                FROM lot l
+        $query = 'SELECT * FROM lot l
                 JOIN category c
                 ON l.category_id=c.id
                 JOIN `user` u
@@ -63,8 +53,26 @@ extends Model
                 ORDER BY l.`created` DESC
                 LIMIT 6 OFFSET '. ($page - 1) * 6;
 
-        $result['search'] =  $model -> select ($query);
+        return  $model -> select ($query);
+    }
 
-        return $result;
+
+    //------------------------------------------------------------------------------------------------------------------
+    public function getByCategoryID ($id, $page)
+    {
+        $model = new Model ();
+
+        $query = 'SELECT * FROM lot l
+                JOIN category c
+                ON l.category_id=c.id
+                JOIN `user` u
+                ON u.id=l.user_id
+                WHERE is_active=1 AND l.category_id='. $id .'
+                ORDER BY l.`created` DESC
+                LIMIT 6 OFFSET '. ($page - 1) * 6;
+
+        $values =  $model ->select ($query);
+
+        return $values;
     }
 }
