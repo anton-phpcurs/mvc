@@ -23,7 +23,7 @@ extends Model
     {
         $model = new Model ();
 
-        $query = 'SELECT l.id,l.title,l.start_price,l.description,l.category_id,c.name,u.id user_id,u.first_name,u.last_name
+        $query = 'SELECT l.*,c.name,u.id user_id,u.first_name,u.last_name
                 FROM lot l
                 JOIN category c
                 ON l.category_id=c.id

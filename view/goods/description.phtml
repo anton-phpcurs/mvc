@@ -4,7 +4,7 @@
     <div class="container goods-description">
         <div class="row">
             <div class="col-lg-4 col-md-4">
-                <img src="/img/goods-desc.png" alt="box" class="img-rounded">
+                <img width="300px" src="/img/lotPhoto/<?= $description['front_img']; ?>" alt="box" class="img-rounded">
             </div>
             <div class="col-lg-8 col-md-8 goods-info">
                 <h3 class="text-center"><?= $description['title']; ?></h3>
@@ -30,7 +30,7 @@
                 <ul class="pagination">
                     <li><a href="#" class="glyphicon glyphicon-chevron-left corners-rounded"></a></li>
                     <?php foreach ($similar as $sim) :?>
-                        <li><a href="/goods/description?id=<?= $sim['id']?>" class="corners-rounded"><img src="/img/goods-desc.png" alt="box" class="img-rounded"></a></li>
+                        <li><a href="/lots/info/<?= $sim['id']?>" class="corners-rounded"><img src="/img/lotPhoto/<?= $sim['front_img']; ?>" alt="box" class="img-rounded"></a></li>
                     <?php endforeach; ?>
                     <li><a href="#" class="glyphicon glyphicon-chevron-right corners-rounded"></a></li>
                 </ul>
