@@ -28,9 +28,12 @@ extends Controller
         $model = new Model_Category ();
         $valuesMain['catList'] = $model -> getCategoryAll();
 
+        $model = new Model_User ();
+        $values = $model -> getUserInfo($this -> valueURL[0]);
+
         $view = new View();
         $view -> addBufferMain('layout', $valuesMain);
-        $view -> addBuffers('info');
+        $view -> addBuffers('info', $values);
         $view -> renderBuffer();
     }
 
